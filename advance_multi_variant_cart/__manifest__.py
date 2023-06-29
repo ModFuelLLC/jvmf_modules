@@ -14,12 +14,15 @@ Website Multi Variant Add to Cart
 website_variant_cart
 Multiple Variant Add to Cart
         """,
-    'depends': ['laze_customize','jvmf_stock_enhancements'],
+    'depends': [
+        'laze_customize',
+        #'jvmf_stock_enhancements'
+        ],
     'installable': True,
     'data': [
         'views/templates.xml',
     ],
-    'installable': True,
+    #'installable': True,
     'images': ['static/description/Multi-Variantbanner.jpg'],
     'application': True,
 }
