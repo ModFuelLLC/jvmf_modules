@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="jvmf_stock_move_form_alt_location" model="ir.ui.view">
+        <field name="name">jvmf.stock.move.form.alt.location</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='origin_grp']" position="after">
+                <group name="store" string="Storage Location">
+                    <field name="alt_location_id"/>
+                    <field name="rack"/>
+                    <field name="shelf"/>
+                    <field name="bin"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="jvmf_stock_move_picking_form_alt_location" model="ir.ui.view">
+        <field name="name">jvmf.stock.move.picking.form.alt.location</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='quants_grp']" position="before">
+                <group name="store" string="Storage Location">
+                    <field name="alt_location_id"/>
+                    <field name="rack"/>
+                    <field name="shelf"/>
+                    <field name="bin"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="jvmf_move_line_form_alt_location" model="ir.ui.view">
+        <field name="name">jvmf.move.line.form.alt.location</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="inside">
+                <group name="store" string="Storage Location">
+                    <field name="alt_location_id"/>
+                    <field name="rack"/>
+                    <field name="shelf"/>
+                    <field name="bin"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="jvmf_picking_form_alt_location" model="ir.ui.view">
+        <field name="name">jvmf.packing.form.alt.location</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_line_ids_without_package']/tree/field[@name='product_uom_id']" position="after">
+                <field name="alt_location_id"/>
+                <field name="rack"/>
+                <field name="shelf"/>
+                <field name="bin"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="jvmf_picking_tree_alt_location" model="ir.ui.view">
+        <field name="name">jvmf.packing.tree.alt.location</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_picking_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="alt_location_id"/>
+                <field name="rack"/>
+                <field name="shelf"/>
+                <field name="bin"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="jvmfstock_move_tree_alt_location" model="ir.ui.view">
+        <field name="name">jvmf.stock.move.tree.alt.location</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="alt_location_id"/>
+                <field name="rack"/>
+                <field name="shelf"/>
+                <field name="bin"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

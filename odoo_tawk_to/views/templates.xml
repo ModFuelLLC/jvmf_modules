@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <!-- Copyright (c) 2018-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+    <!-- See LICENSE file for full copyright and licensing details. -->
+
+        <template id="assets_common" name="planner common assets" inherit_id="web.assets_common">
+            <xpath expr="." position="inside">
+            <script type="text/javascript" src="/odoo_tawk_to/static/src/js/tawk_to.js"></script>
+            </xpath>
+        </template>
+        <template id="webclient_script_inherited"  inherit_id="web.webclient_bootstrap">
+            <xpath expr="//script" position="after">
+            <t t-if="request.session.get('wk_tawk_visible_on') == 'backend' or request.session.get('wk_tawk_visible_on') == 'both'">
+                <script type="text/javascript">
+                    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                    (function(){
+                    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                    s1.async=true;
+                    s1.src='https://embed.tawk.to/<t t-raw="request.session.get('wk_tawk_to_site_id')"/>/default';
+                    s1.charset='UTF-8';
+                    s1.setAttribute('crossorigin','*');
+                    s0.parentNode.insertBefore(s1,s0);
+                    })();
+                </script>
+                </t>
+            </xpath>
+        </template>
+        <template id="assets_frontend" name="website_ribbon_assets_frontend" inherit_id="website.layout">
+            <xpath expr="." position="inside">
+            <t t-esc="request.session.get('wk_tawk_visible_on')"/>
+            <t t-if="request.session.get('wk_tawk_visible_on') == 'website' or  request.session.get('wk_tawk_visible_on') == 'both'">
+                 <script type="text/javascript">
+                        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                        (function(){
+                        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                        s1.async=true;
+                        s1.src='https://embed.tawk.to/<t t-raw="request.session.get('wk_tawk_to_site_id')"/>/default';
+                        s1.charset='UTF-8';
+                        s1.setAttribute('crossorigin','*');
+                        s0.parentNode.insertBefore(s1,s0);
+                        })();
+                </script>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

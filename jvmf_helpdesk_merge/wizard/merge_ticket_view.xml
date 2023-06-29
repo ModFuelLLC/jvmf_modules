@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_merge_ticket_wizard" model="ir.ui.view">
+        <field name="model">merge.ticket</field>
+        <field name="arch" type="xml">
+            <form>
+                <div>
+                    <p><b>Stage for the merge ticket </b><field name="stage_id" required="1" options="{'no_create_edit': True}" domain="[('team_ids', '=', ticket_team_id), ('is_close', '=', False)]"/></p>
+                </div>
+                <label for="ticket_ids"/>
+                <seperator>
+                  <field name="ticket_id" invisible="1"/>
+                  <field name="ticket_team_id" invisible="1"/>
+                  <field name="ticket_ids" domain="[('is_merge', '=', False), ('id', '!=', ticket_id), ('team_id', '=', ticket_team_id), ('stage_id.is_close', '=', False)]" required="1"/>
+                  <field name="email" invisible="1"/>
+                </seperator>
+                <group attrs="{'invisible': [('email', '=', 'do_not_send_mail')]}">
+                    <field name="subject" attrs="{'required': [('email', '=', 'send_mail')]}"/>
+                </group>
+                <seperator attrs="{'invisible': [('email', '=', 'do_not_send_mail')]}">
+                    <field name="body" options="{'style-inline': true}"/>
+                </seperator>
+                <footer>
+                    <button string="Merge" class="btn-primary" type="object" name="get_data"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+     </record>
+
+     <record id="action_merge_ticket" model="ir.actions.act_window">
+         <field name="name">Merge Ticket</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">merge.ticket</field>
+         <field name="view_mode">form</field>
+         <field name="view_id" ref="view_merge_ticket_wizard"/>
+         <field name="target">new</field>
+     </record>
+</odoo>

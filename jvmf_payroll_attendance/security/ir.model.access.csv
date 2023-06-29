@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employment_locations_employee,access_employment_locations,model_employment_locations,base.group_user,1,0,0,0
+access_employment_locations_management,access_employment_locations,model_employment_locations,hr.group_hr_manager,1,1,1,1
+access_location_employee_rel_employee,access_location_employee_rel,model_location_employee_rel,base.group_user,1,0,0,0
+access_location_employee_rel_management,access_location_employee_rel,model_location_employee_rel,hr.group_hr_manager,1,1,1,1
+access_validotor_manager,access_validotor,model_hr_payslip_validate,hr_payroll.group_hr_payroll_user,1,1,1,1

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Add in references for incoming carrier information which will inherit to the picking order -->
+  <record id="purchase_order_form_receipt_ext" model="ir.ui.view">
+    <field name="name">purchase.order.form.receipt.ext</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='currency_id']" position="after">
+        <field name="incoming_carrier_id"/>
+        <field name="incoming_carrier_tracking_ref"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_helpdesk_team_merge_ticket_inherit_form" model="ir.ui.view">
+        <field name="name">helpdesk.team.inherit.form</field>
+        <field name="model">helpdesk.team</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div[@id='project_management']" position="after">
+              <h2>Merge Ticket</h2>
+              <div class="row mt16 o_settings_container" id="helpdesk_merge_ticket">
+                <div class="col-lg-6 o_setting_box">
+                  <div class="o_setting_left_pane">
+                        <field name="merge_ticket" style="padding: 12px; margin: 0"/>
+                  </div>
+                  <div class="o_setting_right_pane">
+                      <span class="fa fa-3x fa-ticket pull-right"/>
+                      <label for="merge_ticket"/>
+                      <div class="text-muted">
+                          Member of the team can merge multiple related tickets into one ticket.
+                      </div>
+                      <div>
+                          <hr class="mt8 mb8"/>
+                          <field name="communication"/>
+                      </div>
+                      <div>
+                          <field name="email"/>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

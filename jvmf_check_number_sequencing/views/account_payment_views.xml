@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Adds set to Draft button to Payment Form -->
+  <record model="ir.ui.view" id="joost_payment_form">
+    <field name="name">joost.payment.form</field>
+    <field name="model">account.payment</field>
+    <field name="inherit_id" ref="account.view_account_payment_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='post']" position="after">
+        <button name="set_to_draft" attrs="{'invisible': [('state', 'not in', ('cancelled'))]}"
+          class="oe_highlight" string="Set To Draft" type="object" groups="account.group_account_manager"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- alters the cancel button on the payment form -->
+  <record model="ir.ui.view" id="joost_payment_cancel_form">
+    <field name="name">joost.payment.form.cancel</field>
+    <field name="model">account.payment</field>
+    <field name="inherit_id" ref="account_cancel.payment_cancel_form_inherit" />
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='cancel']" position="replace">
+        <button name="cancel" attrs="{'invisible': [('state', '=', ('cancelled'))]}"
+          string="Cancel" type="object" groups="account.group_account_manager"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

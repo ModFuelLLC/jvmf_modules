@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Add location, job and auto clock out to the attendences tree view -->
+    <record id="timeclock_attendance_tree" model="ir.ui.view">
+      <field name="name">timeclock.attendance.tree</field>
+      <field name="model">hr.attendance</field>
+      <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='employee_id']" position="after">
+          <field name="location_id" string="Location" />
+          <field name="zone_id" string="Zone"/>
+          <field name="job_id"/>
+          <field name="company_id"/>
+        </xpath>
+        <xpath expr="//field[@name='check_out']" position="after">
+          <field name="payslip_id" readonly="1"/>
+          <field name="auto_checkout" readonly="1"/>
+          <field name="overtime_hours" readonly="1"/>
+          <field name="check_job" invisible="1"/>
+          <field name="timezone_check"  invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Attendance form view changes -->
+    <record id="timeclock_attendance_form" model="ir.ui.view">
+      <field name="name">timeclock.attendance.form</field>
+      <field name="model">hr.attendance</field>
+      <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='employee_id']" position="after">
+          <field name="location_id" string="Location" domain="[('parent_id', '!=', False)]"/>
+          <field name="zone_id" string="Zone" attrs="{'invisible': [('location_id', '=', False)]}"/>
+          <field name="contract_id" domain="[('employee_id','=',employee_id)]" attrs="{'required': True}"/>
+          <field name="job_id"/>
+          <field name="company_id"/>
+        </xpath>
+        <xpath expr="//field[@name='check_out']" position="after">
+          <field name="payslip_id" readonly="1"/>
+          <field name="auto_checkout" groups="hr.group_hr_manager"/>
+          <field name="overtime_hours" readonly="1"/>
+          <field name="check_job" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Add location to default filters -->
+    <record id="hr_attendance_filter_location" model="ir.ui.view">
+      <field name="name">hr.attendance.filter.location</field>
+      <field name="model">hr.attendance</field>
+      <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+      <field name="arch" type="xml">
+        <xpath expr="//filter[@name='myattendances']" position="after">
+          <filter string="Over Time" name="overtime" domain="[('overtime_hours', '=', True)]"/>
+          <filter string="Auto Clock Out" name="autoclockout" domain="[('auto_checkout', '=', True)]"/>
+        </xpath>
+        <xpath expr="//group/filter[@name='employee']" position="after">
+          <filter name="location" string="Location" domain = "[]" context="{'group_by': 'location_id'}"/>
+          <filter name="zone" string="Zone" domain = "[]" context="{'group_by': 'zone_id'}"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Second tree view w/o edit/create buttons -->
+    <record id="view_attendance_tree_read_only" model="ir.ui.view">
+        <field name="name">attendance.tree.read_only</field>
+        <field name="model">hr.attendance</field>
+        <field name="arch" type="xml">
+            <tree edit="false" create="false" >
+                <field name="employee_id"/>
+                <field name="location_id" string="Location" />
+                <field name="zone_id" string="Zone"/>
+                <field name="job_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="worked_hours" sum="Total Worked Hours"/>
+                <field name="auto_checkout" readonly="1"/>
+                <field name="overtime_hours" readonly="1"/>
+            </tree>
+        </field>
+      </record>
+
+    <!-- Menu and action to open new tree view -->
+    <record id="hr_attendance.hr_attendance_action" model="ir.actions.act_window">
+        <field name="name">Attendances</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="context">{"search_default_today":1}</field>
+        <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No attendance records found
+            </p><p>
+                The attendance records of your employees will be displayed here.
+            </p>
+        </field>
+    </record>
+
+    <record id="attendance_action_read_only" model="ir.actions.act_window">
+        <field name="name">My Attendances</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_attendance_tree_read_only"/>
+        <field name="domain">[('employee_id.user_id','=',uid)]</field>
+        <field name="context">{"search_default_today":1}</field>
+        <field name="search_view_id" ref="hr_attendance.hr_attendance_view_filter" />
+    </record>
+
+    <menuitem id="menu_hr_attendance_view_my_attendances"
+      name="View My Attendances"
+      parent="hr_attendance.menu_hr_attendance_root"
+      sequence="10"
+      action="attendance_action_read_only" />
+
+    <!-- change permissions on accessing the kiosks -->
+    <menuitem id="menu_hr_attendance_kiosk"
+      name="Attendance Kiosk"
+      parent="hr_attendance.menu_hr_attendance_root"
+      sequence="10"
+      action="hr_attendance.hr_attendance_action_kiosk_mode"/>
+
+  </data>
+</odoo>

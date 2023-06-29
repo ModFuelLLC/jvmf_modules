@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Change the method attached to the print checks button on the Print Pre-numbered Checks popup -->
+  <record id="print_pre_numbered_checks_view_ext" model="ir.ui.view">
+    <field name="name">print.prenumbered.checks.ext</field>
+    <field name="model">print.prenumbered.checks</field>
+    <field name="inherit_id" ref="account_check_printing.print_pre_numbered_checks_view" />
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='print_checks']" position="replace">
+        <button name="action_test_check_number" string="Print" type="object" class="oe_highlight"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Duplicate Check Number Pop up -->
+  <record model="ir.ui.view" id="duplicate_check_numbers">
+    <field name="name">duplicate.check.numbers</field>
+    <field name="model">print.prenumbered.checks</field>
+    <field name="arch" type="xml">
+      <form>
+        <p>The selected check number is a duplicate number.  Please double check the check number
+        used and if correct please contact system admin or fix the check number.</p>
+        <footer>
+          <button special="cancel" string="Ok" class="oe_highlight"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>

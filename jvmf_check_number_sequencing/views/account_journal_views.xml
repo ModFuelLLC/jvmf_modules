@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Adds minimum check number to the journal form -->
+  <record model="ir.ui.view" id="joost_journal_form">
+    <field name="name">joost.journal.form</field>
+    <field name="model">account.journal</field>
+    <field name="inherit_id" ref="account.view_account_journal_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='outbound_payment_method_ids']" position="after">
+        <field name="minimum_check_number" attrs="{'invisible': [('check_printing_payment_method_selected', '=', False)]}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="jcv_product_template_tree" model="ir.ui.view">
+      <field name="name">jcv.product.template.tree</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_tree_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='type']" position="after">
+          <field name="saleable_trigger" invisible="1"/>
+          <field name="saleable_qty"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="jcv_product_product_tree" model="ir.ui.view">
+      <field name="name">jcv.product.product.tree</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="stock.view_stock_product_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='qty_available']" position="before">
+          <field name="saleable_trigger" invisible="1"/>
+          <field name="saleable_qty"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

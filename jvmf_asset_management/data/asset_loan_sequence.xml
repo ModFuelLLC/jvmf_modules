@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Eficent Business and IT Consulting Services S.L.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo noupdate="1">
+
+        <record id="jvmf_seq_asset_loan" model="ir.sequence">
+            <field name="name">Asset Loan</field>
+            <field name="code">asset.loan</field>
+            <field name="prefix">AL-</field>
+            <field name="padding">6</field>
+        </record>
+
+</odoo>

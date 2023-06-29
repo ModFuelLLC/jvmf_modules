@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_jcv_edit_salesperson,access_jcv_edit_salesperson,model_res_partner,base.group_user,1,1,1,1
+access_jvmf_stage_assign_salesperson,access_jvmf_stage_assign_salesperson,model_crm_stage_user,base.group_user,1,0,0,0
+access_jvmf_stage_assign_salesperson_manager,access_jvmf_stage_assign_salesperson_manager,model_crm_stage_user,sales_team.group_sale_manager,1,1,1,1

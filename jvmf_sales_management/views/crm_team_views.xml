@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="jvmf_se_crm_team_view_form" model="ir.ui.view">
+    <field name="name">jvmf.se.crm.team.view.form</field>
+    <field name="model">crm.team</field>
+    <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='company_id']" position="after">
+        <field name="use_stage_assign"/>
+      </xpath>
+      <xpath expr="//notebook" position="inside">
+        <page name="stage_assign_user" string="Stage Assigned Salesperson" attrs="{'invisible': [('use_stage_assign','=',False)]}" groups="sales_team.group_sale_manager">
+           <field name="stage_team_ids">
+             <tree string="Stage Assigned Salesperson" editable="bottom">
+               <field name="stage_id"/>
+               <field name="user_id"/>
+             </tree>
+           </field>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

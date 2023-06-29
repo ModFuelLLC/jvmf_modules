@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+    <t t-name="TestLocation">
+        <div class="o_hr_attendance_kiosk_mode_container">
+            <div class="o_hr_attendance_kiosk_mode">
+                <t t-if="widget.employee_name">
+                    <h1>Employee Details</h1>
+                    <div style="font-size: 20px;"><span style="font-weight: bold;">Name: </span><span class="ml8"><t t-esc="widget.employee_name"/></span></div>
+                    <div t-if="widget.location_name" style="font-size: 20px;"><span style="font-weight: bold;">Location: </span><span class="ml8"><t t-esc="widget.location_name"/></span></div>
+                    <div t-if="widget.job_profile" style="font-size: 20px;"><span style="font-weight: bold;">Job Title: </span><span class="ml8"><t t-esc="widget.job_profile"/></span></div>
+                    <div class="mt16">
+                        <button class="o_jvmf_payroll_attendance_button_confirm btn btn-success btn-lg mr16">Confirm</button>
+                        <button class="o_jvmf_payroll_attendance_button_cancel btn btn-danger btn-lg ml16">Cancel</button>
+                    </div>
+                </t>
+                <t t-if="!widget.employee_name">
+                    Error : Could not find employee linked to user.
+                </t>
+            </div>
+        </div>
+    </t>
+</template>

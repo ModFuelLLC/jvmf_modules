@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Copyright (c) 2018-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+    <!-- See LICENSE file for full copyright and licensing details. -->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.odoo.tawk.to</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="30"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Tawk To" string="Tawk To" data-key="odoo_tawk_to" groups="website.group_website_designer">
+                    <h2>Configuration for Odoo Tawk To </h2>
+                    <div class="row mt16 o_settings_container" id="coupon_config">
+                        <div class="col-xs-12 col-md-12 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Site ID" for="website_id" />
+                                <div class="text-muted">
+                                   Put your tawk to site ID here.
+                                </div>
+                                <div class="text-muted">
+                                   <field name="tawk_site_id" placeholder="Put your tawk to site id here"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="Display Tawk To chatter on" for="website_id"/>
+                                <div class="text-muted">
+                                   Display Tawk To chatter on.
+                                </div>
+                                <div class="text-muted">
+                                   <field name="visible_on"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-12 o_setting_box">
+                            <div class="o_setting_right_pane">
+                               <label for="link_tawk" string="For going to tawk to dashboard"/>
+                                    <a href="https://dashboard.tawk.to/#/admin" name="link_tawk"> Click here</a>  
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+

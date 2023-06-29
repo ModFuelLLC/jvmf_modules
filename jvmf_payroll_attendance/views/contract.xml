@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Location Employee Relation Kanban View -->
+        <record id="hr_contract_view_kanban" model="ir.ui.view">
+          <field name="name">hr.contract.kanban</field>
+          <field name="model">hr.contract</field>
+          <field name="view_mode">kanban</field>
+          <field name="arch" type="xml">
+            <kanban class="o_hr_contract_kanban" create="false" default_group_by="company_id">
+              <templates>
+                <t t-name="kanban-box">
+                  <div class="oe_kanban_global_click">
+                    <div class="oe_kanban_details">
+                      <div id="textbox">
+                        <div class="col-xs-11" style="padding:0px">
+                            <div>
+                                <span><strong>Job Title: </strong></span>
+                                <span><field name="name"/></span>
+                            </div>
+                            <div>
+                                <span><strong>Company: </strong></span>
+                                <span><field name="company_id"/></span>
+                            </div>
+                            <field name="id" invisible="1"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </t>
+              </templates>
+            </kanban>
+          </field>
+        </record>
+
+        <record id="jvmf_payroll_attendance_hr_contract_view_search" model="ir.ui.view">
+            <field name="name">timeclock.hr.contract.search</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_search"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="company_id"/>
+                </field>
+                <xpath expr="//group" position="inside">
+                    <filter string="Company" name='group_by_company' domain="[]" context="{'group_by': 'company_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="jvmf_payroll_hr_contract_form_inherit" model="ir.ui.view">
+            <field name="name">jvmf_payroll.hr.contract.view.form.payroll</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_payroll.hr_contract_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="replace">
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="timeclock_hr_contract_view_form">
+            <field name="name">timeclock.hr.contract.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//field[@name='job_id']" position="after">
+                <field name="company_id"/>
+              </xpath>
+              <xpath expr="//notebook" position="replace">
+                <notebook groups="hr.group_hr_manager">
+                    <page string="Information" name="information">
+                        <group>
+                            <group name="salary_and_advantages" string="Salary and Advantages">
+                                <field name="wage"/>
+                                <field name="wage_type" widget="radio"/>
+                                <field name="other_wage_type" attrs="{'invisible': [('wage_type','!=','other')]}"/>
+                                <field name="advantages" nolabel="1" placeholder="Advantages..." colspan="2"/>
+                            </group>
+                            <group name="duration_group" string="Duration">
+                                <label for="date_start" string="Duration"/>
+                                <div>
+                                    <field name="date_start" class="oe_inline"/> - <field name="date_end" class="oe_inline"/>
+                                </div>
+                            </group>
+                            <group name="adp_settings" string="ADP Settings" attrs="{'invisible': [('is_joost_contract', '=', False), ('is_modfuel_contract', '=', False)]}">
+                              <field name="is_joost_contract" invisible="1"/>
+                              <field name="is_modfuel_contract" invisible="1"/>
+                              <field name="adp_joost_department_id" attrs="{'invisible': [('is_joost_contract', '=', False)]}"/>
+                              <field name="adp_modfuel_department_id" attrs="{'invisible': [('is_modfuel_contract', '=', False)]}"/>
+                            </group>
+                            <group name="hybrid_employee_percent" string="Hybrid Employee %" attrs="{'invisible': [('company_name', '!=', 'Joost Corp')]}">
+                              <field name="company_name" invisible="1"/>
+                              <field name="hybrid_joost_percent"/>
+                              <field name="hybrid_modfuel_percent"/>
+                            </group>
+                        </group>
+                        <separator string="Notes"/>
+                        <field name="notes"/>
+                    </page>
+                    <page string="Work Permit">
+                        <group col="4">
+                            <field name="visa_no"/>
+                            <field name="permit_no"/>
+                            <field name="visa_expire"/>
+                        </group>
+                    </page>
+                </notebook>
+              </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="joost_hr_contract_view_tree">
+          <field name="name">joost.hr.contract.tree</field>
+          <field name="model">hr.contract</field>
+          <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_id']" position="after">
+              <field name="company_id"/>
+            </xpath>
+          </field>
+        </record>
+
+        <record model="ir.actions.server" id="hr_contrct_state_change_server_action">
+            <field name="name">Change Status</field>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="model_hr_contract"/>
+            <field name="binding_model_id" ref="model_hr_contract"/>
+            <field name="code">
+                action = records.get_hr_contract_state_change_wizard()
+            </field>
+        </record>
+    </data>
+</odoo>

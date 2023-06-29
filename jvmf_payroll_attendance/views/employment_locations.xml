@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Search View -->
+    <record id="view_location_tree_filter" model="ir.ui.view">
+      <field name="name">employment.locations.search</field>
+      <field name="model">employment.locations</field>
+      <field name="arch" type="xml">
+        <search string="Locations">
+          <field name="name" string="Locations"/>
+          <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+          <field name="parent_id" string="Zones" filter_domain="[('parent_id', 'child_of', self)]"/>
+          <group expand="0" string="Group By">
+            <filter name="group_zone" string="Zone" domain="[]" context="{'group_by': 'parent_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- Locations Tree View -->
+    <record model="ir.ui.view" id="employment_locations_tree">
+      <field name="name">employment.locations.tree</field>
+      <field name="model">employment.locations</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="address_id" />
+          <field name="phone_number" />
+          <field name="parent_id" />
+        </tree>
+      </field>
+    </record>
+
+    <!-- Locations Kanban View -->
+    <record model="ir.ui.view" id="employment_locations_Kanban">
+      <field name="name">employment.locations.kanban</field>
+      <field name="model">employment.locations</field>
+      <field name="arch" type="xml">
+        <kanban string="Employment Locations" default_group_by="parent_id">
+          <field name="id"/>
+          <field name="message_follower_ids"/>
+          <field name="message_ids"/>
+          <field name="message_needaction_counter"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click o_hr_kanban_record">
+                <div class="os_kanban_details">
+                  <div class="o_kanban_record_top">
+                      <div class="o_kanban_record_headings">
+                          <strong class="o_kanban_record_title">
+                            <field name="name"/>
+                            <field name="can_edit_payroll_location" invisible="1"/>
+                            <span class="o_payroll_location_kanban float-right">
+                              <field name="payroll_location" string="" widget="toggle_button"
+                                attrs="{'readonly': [('can_edit_payroll_location', '=', False)]}"
+                                options='{"active": "[Green] - This location counts for payroll processing", "inactive": "[Gray] - This location defaults to the employee set default location."}'/>
+                            </span>
+                          </strong>
+                        </div>
+                  </div>
+                  <ul style="list-style: none;">
+                    <li attrs="{'invisible': [('parent_id', '=', False)]}"><strong>Zone: </strong><field name="parent_id"/></li>
+                    <li attrs="{'invisible': [('zone_manager_id', '=', False)]}"><strong>Zone Manager: </strong><field name="zone_manager_id"/> </li>
+                    <li attrs="{'invisible': [('location_manager_id', '=', False)]}"><strong>Location Manager: </strong><field name="location_manager_id"/></li>
+                    <li attrs="{'invisible': [('address_id', '=', False)]}"><i class="fa fa-building" role="img" aria-label="Address" title="Address"/>
+                      <field name="address_id"
+                          context="{'show_address': 1}"
+                          options='{"always_reload": True, "highlight_first_line": True}'/></li>
+                    <li attrs="{'invisible': [('phone_number', '=', False)]}"><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/> <field name="phone_number" /></li>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_employment_locations">
+      <field name="name">Locations</field>
+      <field name="res_model">employment.locations</field>
+      <field name="view_mode">tree,kanban,form</field>
+      <field name="view_ids"
+        eval="[(5, 0, 0),
+            (0, 0, {'sequence': 2, 'view_mode': 'kanban','view_id': ref('jvmf_payroll_attendance.employment_locations_Kanban')}),
+        ]"/>
+    </record>
+
+    <!-- Top Menu Item -->
+    <menuitem
+      name="Locations"
+      id="employment_locations"
+      parent="hr.menu_hr_root"
+      string="Locations"
+      sequence="91"
+      action="action_employment_locations"/>
+
+    <!-- Locations Form View -->
+    <record model="ir.ui.view" id="employment_locations_form">
+      <field name="name">employment.locations.form</field>
+      <field name="model">employment.locations</field>
+      <field name="arch" type="xml">
+        <form groups="hr.group_hr_manager,base.group_user">
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+                <button name="toggle_active" type="object" groups="hr.group_hr_manager"
+                        class="oe_stat_button" icon="fa-archive">
+                    <field name="active" widget="boolean_button"
+                        options='{"terminology": "archive"}'/>
+                </button>
+            </div>
+            <div class ="oe_title">
+              <h1>
+                <field name="can_edit_payroll_location" invisible="1"/>
+                <span class="o_payroll_location_form">
+                  <field name="payroll_location" string="" widget="toggle_button"
+                    options='{"active": "[Green] - This location counts for payroll processing", "inactive": "[Gray] - This location defaults to the employee set default location."}'
+                    attrs="{'readonly': [('can_edit_payroll_location', '=', False)]}"/>
+                  </span>  <field name="name" placeholder="Location Name" />
+              </h1>
+              <div class="o_row">
+                  <div>
+                    <div>
+                      <field name="parent_id" domain="[('parent_id', '=', False)]"/>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <group>
+              <group>
+                <field name="company_ids" widget="many2many_tags" string="Companies" attrs="{'readonly': [('parent_id', '!=', False)]}"/>
+                <field name="zone_manager_id" attrs="{'readonly': [('parent_id', '!=', False)]}"/>
+                <field name="location_manager_id" attrs="{'invisible': [('parent_id', '=', False)]}" />
+              </group>
+              <group  attrs="{'invisible': [('parent_id', '=', False)]}">
+                <field name="phone_number" placeholder="(xxx) xxx-xxxx"/>
+                <field name="address_id"
+                  context="{'show_address': 1}"
+                  options='{"always_reload": True, "highlight_first_line": True}'/>
+                <field name="location_timezone"/>
+              </group>
+            </group>
+            <notebook>
+              <page name="employee_list" string="Employees" attrs="{'invisible': [('employee_count', '=', 0)]}">
+                <field name="employee_count" invisible="1"/>
+                <field name="employee_ids">
+                  <tree editable="False">
+                    <field name="employee_id" string="Name"/>
+                    <field name="employee_home_phone" string="Phone #"/>
+                    <field name="employee_mobile_phone" string="Mobile #"/>
+                  </tree>
+                </field>
+              </page>
+              <page name="child_locations" string="Locations in Zone" attrs="{'invisible': [('child_count', '=', 0)]}">
+                <field name="child_count" invisible="1"/>
+                <field name="child_ids">
+                  <tree editable="False">
+                    <field name="name" />
+                    <field name="address_id" />
+                    <field name="phone_number" />
+                    <field name="parent_id" />
+                  </tree>
+                </field>
+              </page>
+              <page name="adp_settings" string="ADP settings" groups="hr.group_hr_manager" attrs="{'invisible': [('parent_id', '=', False)]}">
+                <group>
+                  <field name="is_joost_loc" invisible="1"/>
+                  <field name="is_modfuel_loc" invisible="1"/>
+                  <field name="adp_joost_location_id" attrs="{'invisible': [('is_joost_loc', '=', False)]}"/>
+                  <field name="adp_modfuel_location_id" attrs="{'invisible': [('is_modfuel_loc', '=', False)]}"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <!-- Create a form view for the relational table -->
+    <record model="ir.ui.view" id="location_relative_form">
+      <field name="name">location.relavite.form</field>
+      <field name="model">location.employee.rel</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class ="oe_title">
+              <h1>
+                <field name="location_id" />
+              </h1>
+              <div class="o_row">
+                  <div>
+                    <div>
+                      <lable for="location_parent_id" string="Zone"/>
+                      <field name="location_parent_id"/>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <group>
+              <group>
+                <field name="location_phone_number" string="Phone #" />
+                <field name="location_address_id" string="Address" />
+              </group>
+              <group>
+                <field name="employee_id" string="Employee" />
+                <field name="employee_home_phone" string="Phone #" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Location kanban view specifically for hr_attendance (checkin/checkout) -->
+    <record id="location_attendance_kanban" model="ir.ui.view">
+      <field name="name">location.attendance.kanban</field>
+      <field name="model">employment.locations</field>
+      <field name="arch" type="xml">
+        <kanban class="o_location_attendance_kanban" edit="false" create="false" default_group_by="parent_id">
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click">
+                <div class="oe_kanban_details">
+                  <div id="textbox">
+                    <div class="col-xs-11" style="padding:0px">
+                      <strong>
+                        <field name="company_ids" invisible="1"/>
+                        <field name="id" invisible="1" domain="[('company_id', 'in', company_ids)]" />
+                        <field name="name"/>
+                      </strong>
+                    </div>
+                  </div>
+                  <ul>
+                    <li><field name="parent_id"/> </li>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record id="location_attendance_action_kanban" model="ir.actions.act_window">
+      <field name="name">Locations1</field>
+      <field name="res_model">employment.locations</field>
+      <field name="view_model">kanban,tree,activity</field>
+      <field name="view_id" eval="location_attendance_kanban"/>
+      <field name="help" type="html">
+          <p>
+              Create a few locations to select here for check in / check out.
+          </p>
+          <p>
+              To create employees go to the Employees -> Locations menu.
+          </p>
+      </field>
+    </record>
+
+  </data>
+</odoo>

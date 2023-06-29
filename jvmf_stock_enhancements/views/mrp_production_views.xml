@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="jvmf_mrp_production_form_view" model="ir.ui.view">
+    <field name="name">jvmf.mrp.production.form</field>
+    <field name="model">mrp.production</field>
+    <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='user_id']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='user_id']" position="before">
+        <field name="responsible_employee_id" required="1"/>
+      </xpath>
+      <xpath expr="//field[@name='quantity_done']" position="after">
+        <button name="split_move_lot" string="Register lots" type="object" icon="fa-list"
+          attrs="{'invisible': [('has_tracking', 'not in', ['lot','serial'])]}"/>       
+      </xpath>
+    </field>
+  </record>
+</odoo>

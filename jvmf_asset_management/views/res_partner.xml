@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="jvmf_asset_management_partner_form" model="ir.ui.view">
+    <field name="name">jvmf.asset.management.partner.form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="jvmf_purchasing_enhancements.jvmf_purchase_enhancment_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//group[@name='additional_internal_controls']" position="inside">
+        <group string="Asset Loan" name="asset_loans">
+          <field name="asset_loan_allowed" string="Can Borrow Assets"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="jvmf_asset_partner_form" model="ir.ui.view">
+    <field name="name">jvmf.asset.partner.form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//notebook" position="inside">
+        <page name="loaned_assets" string="Asset Loans" attrs="{'invisible': [('asset_loan_allowed','=',False)]}">
+          <field name="loaned_assets">
+            <tree decoration-danger="state in ('over_due')">
+              <field name="asset_id"/>
+              <field name="accessory_ids" widget="many2many_tags"/>
+              <field name="date_out"/>
+              <field name="due_date"/>
+              <field name="state" string="Loan Status"/>
+            </tree>
+          </field>
+        </page>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>

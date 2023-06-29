@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="jvmf_asset_form" model="ir.ui.view">
+    <field name="name">jvmf.asset.form</field>
+    <field name="model">account.asset.asset</field>
+    <field name="inherit_id" ref="account_asset.view_account_asset_asset_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[@name='button_box']" position="inside">
+        <field name="loan_availability" invisible="1"/>
+        <field name="asset_loan_id" invisible="1"/>
+        <button name="action_view_loans"
+            class="oe_stat_button"
+            type="object" attrs="{'invisible': [('can_be_loaned', '=', False)]}">
+            <div role="img" id="oe_asset_loan_status" class="fa fa-fw fa-circle o_button_icon oe_asset_loan_status_green" attrs="{'invisible': [('loan_availability', '!=', 'in')]}" aria-label="Available" title="Available"/>
+            <div role="img" id="oe_asset_loan_status" class="fa fa-fw fa-circle o_button_icon oe_asset_loan_status_yellow" attrs="{'invisible': [('loan_availability', '!=', 'req')]}" aria-label="Requested" title="Requested"/>
+            <div role="img" id="oe_asset_loan_status" class="fa fa-fw fa-circle o_button_icon oe_asset_loan_status_red" attrs="{'invisible': [('loan_availability', '!=', 'out')]}" aria-label="Checked Out" title="Checked Out"/>
+            <div class="o_stat_info">
+                <span class="o_stat_text">Loan Status</span>
+            </div>
+        </button>
+      </xpath>
+      <xpath expr="//field[@name='category_id']" position="after">
+        <field name="product_id"/>
+      </xpath>
+
+      <xpath expr="//field[@name='account_analytic_id']" position="after">
+        <separator/>
+        <field name="last_check_in" attrs="{'invisible': [('last_check_in', '=', False)]}"/>
+        <field name="last_check_out" attrs="{'invisible': [('last_check_out', '=', False)]}"/>
+        <field name="repair" attrs="{'invisible': [('repair', '=', False)]}"/>
+      </xpath>
+      <xpath expr="//notebook" position="inside">
+        <page name="additional_info" string="Asset Information">
+          <group>
+            <group>
+              <field name="asset_make"/>
+              <field name="asset_model"/>
+              <field name="serial_number"/>
+              <field name="barcode"/>
+              <field name="estimated_eol"/>
+
+            </group>
+            <group>
+              <field name="can_be_loaned"/>
+              <field name="asset_img" widget='image' options='{"preview_image":"image_medium"}'/>
+            </group>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="jvmf_asset_tree_view" model="ir.ui.view">
+    <field name="name">jvmf.asset.tree</field>
+    <field name="model">account.asset.asset</field>
+    <field name="inherit_id" ref="account_asset.view_account_asset_asset_purchase_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='state']" position="before">
+        <field name="loan_availability"/>
+      </xpath>
+      <xpath expr="//field[@name='state']" position="after">
+        <field name="can_be_loaned"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="jvmf_asset_category_form" model="ir.ui.view">
+    <field name="name">jvmf.asset.category.form</field>
+    <field name="model">account.asset.category</field>
+    <field name="inherit_id" ref="account_asset.view_account_asset_category_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='company_id']" position="after">
+        <field name="user_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

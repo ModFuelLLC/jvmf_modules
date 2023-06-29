@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+        <record id="hr_contract_wizard_form_view" model="ir.ui.view">
+            <field name="name">hr.contract.wizard.form</field>
+            <field name="model">hr.contract.wizard</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="text-center" style="color:#558B2F;font-size: 20px;margin-bottom: 10px;">
+                            <center>Selected HR contracts.</center>
+                        </div>
+                        <field name="hr_contract_ids">
+                            <tree create="false" edit="false" delete="false">
+                                <field name="name" readonly="1"/>
+                                <field name="employee_id"  readonly="1"/>
+                                <field name="type_id" readonly="1"/>
+                                <field name="job_id" readonly="1"/>
+                                <field name="state" readonly="1"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <field name="state" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                        <footer>
+                            <button name="status_change_confirmation" type="object" string="Confirm" class="oe_highlight"/>
+                            <button special="cancel" string="Cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

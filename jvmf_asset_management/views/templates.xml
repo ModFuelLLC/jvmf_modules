@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+      <template id="assets_backend" inherit_id="website.assets_backend" name="Assets Loan assets">
+          <xpath expr="." postion="inside">
+              <link rel="stylesheet" type="text/css" href="/jvmf_asset_management/static/src/css/asset_loan_styles.scss"/>
+          </xpath>
+      </template>
+    </data>
+</odoo>

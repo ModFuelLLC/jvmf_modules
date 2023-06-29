@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="jvmf_asset_loan_product_form" model="ir.ui.view">
+    <field name="name">jvmf.asset.loan.product.form</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_form_view"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//div[@name='button_box']" position="inside">
+        <button type="object"
+          name="action_view_assets"
+          class="oe_stat_button"
+          icon="fa-share-square-o"
+          attrs="{'invisible': [('asset_count','=',0)]}"
+          groups="jvmf_asset_management.group_asset_loan_manager">
+          <field name="asset_count" widget="statinfo" string="Assets"/>
+        </button>
+      </xpath>
+
+      <xpath expr="//div[@name='options']" position="inside">
+        <div>
+            <field name="asset_loan_ok"/>
+            <label for="asset_loan_ok"/>
+        </div>
+      </xpath>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Add in references for incoming carrier information which will inherit to the picking order -->
+  <record id="view_product_return_form_receipt_ext" model="ir.ui.view">
+    <field name="name">view.product.return.form.receipt.ext</field>
+    <field name="model">product.return</field>
+    <field name="inherit_id" ref="jvmf_rma_management.view_product_return_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='source_location_id']" position="after">
+        <field name="incoming_carrier_id" attrs="{'invisible': [('product_return_type', '=', 'outgoing')]}"/>
+        <field name="incoming_carrier_tracking_ref"  attrs="{'invisible': [('product_return_type', '=', 'outgoing')]}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

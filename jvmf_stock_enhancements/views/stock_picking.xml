@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- All additions directly to the stock.picking form -->
+    <record id="jvmf_stock_picking_receipt_enh" model="ir.ui.view">
+      <field name="name">jvmf.stock.picking.recepit.enh</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form" />
+      <field name="arch" type="xml">
+        <!-- Add buttons to incoming receipts for followup and add certain states to existing buttons-->
+        <xpath expr="//button[@name='action_cancel']" position="after">
+          <button name="followup_reserve"
+            states="damaged,followup"
+            string="Reserve"
+            type="object"
+            class="oe_highlight"
+            groups="base.group_user"/>
+          <button name="action_cancel"
+            states="damaged,followup"
+            string="Cancel"
+            groups="base.group_user"
+            type="object"/>
+          <button name="set_followup"
+            attrs="{'invisible': [
+              '|',('picking_type_code', '!=', 'incoming'),
+              ('state', 'not in', ('draft','waiting','confirmed','partially_available','assigned','damaged'))]}"
+            string="Set Follow Up"
+            type="object"
+            groups="stock.group_stock_manager"/>
+          <button name="action_damage"
+            attrs="{'invisible': [
+              '|',('picking_type_code', '!=', 'incoming'),
+              ('state', 'not in', ('draft','waiting','confirmed','partially_available','assigned','followup'))]}"
+            string="Damage"
+            type="object"
+            groups="stock.group_stock_manager"/>
+        </xpath>
+        <!-- Add in a responsible employee name -->
+        <xpath expr="//field[@name='backorder_id']" position="after">
+          <field name="responsible_employee_id" required="1"/>
+        </xpath>
+
+        <!-- Hide the origin field and put conditional fields for  -->
+        <xpath expr="//field[@name='origin']" position="attributes">
+          <attribute name="attrs">{'invisible': [('origin_is_visible', '=', False)]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='origin']" position="before">
+          <field name="sale_id" attrs="{'invisible': [('sale_id', '=', False)]}"/>
+          <field name="origin_is_visible" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Add a Followup Filter to Stock Pickings -->
+    <record id="jvmf_stock_picking_filter" model="ir.ui.view">
+      <field name="name">jvmf.stock.picking.filter</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref='stock.view_picking_internal_search'/>
+      <field name="arch" type="xml">
+        <xpath expr="//filter[@name='available']" position="after">
+          <filter name="followup" string="Follow Up Needed" domain="[('state', '=', 'followup')]" help="Pickings require a followup"/>
+        </xpath>
+      </field>
+    </record>
+
+
+
+    <!-- Add carrier to tree view -->
+    <record id="jvmf_stock_carrier_tree_view" model="ir.ui.view">
+      <field name="name">jvmf.stock.carrier.tree.view</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.vpicktree" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="carrier_id_tree_view" string="Carrier"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- add incoming carrier information that doesn't call to fed ex -->
+    <record id="jvmf_stock_carrier_form_view" model="ir.ui.view">
+      <field name="name">jvmf.stock.carrier.form.view</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form" />
+      <field name="priority" eval="10"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='carrier_id']" position="attributes">
+          <attribute name="attrs">{'readonly': ['|', ('state', '=', 'done'), ('picking_type_name', '=', 'Dropship')], 'invisible': [('picking_type_code', '!=', 'outgoing')]}</attribute>
+        </xpath>
+        <xpath expr="//label[@for='carrier_tracking_ref']" position="attributes">
+          <attribute name="attrs">{'invisible': [('picking_type_code', '!=', 'outgoing')]}</attribute>
+        </xpath>
+        <xpath expr="//div[@name='tracking']" position="attributes">
+          <attribute name="attrs">{'invisible': [('picking_type_code', '!=', 'outgoing')]}</attribute>
+        </xpath>
+        <xpath expr="//div[@name='tracking']" position="after">
+          <field name="picking_type_name" invisible="1"/>
+          <field name="po_carrier_id" attrs="{'readonly': ['|', ('state', '=', 'done'), ('picking_type_name', '=', 'Dropship')], 'invisible': [('po_id', '=', False)]}"/>
+          <field name="po_carrier_tracking_ref" class="oe_inline" attrs="{'readonly': [('state', '=', 'done')], 'invisible': [('po_id', '=', False)]}"/>
+          <field name="crma_carrier_id" attrs="{'readonly': ['|', ('state', '=', 'done'), ('picking_type_name', '=', 'Dropship')], 'invisible': ['|', ('rma_id', '=', False), ('picking_type_code', '!=', 'incoming')]}"/>
+          <field name="crma_carrier_tracking_ref" class="oe_inline" attrs="{'readonly': [('state', '=', 'done')], 'invisible': ['|', ('rma_id', '=', False), ('picking_type_code', '!=', 'incoming')]}"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="jvmf_backorder_confirmation_edit" model="ir.ui.view">
+      <field name="name">jvmf.backorder.confirmation.edit</field>
+      <field name="model">stock.backorder.confirmation</field>
+      <field name="inherit_id" ref="stock.view_backorder_confirmation" />
+      <field name="priority" eval="10"/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='process_cancel_backorder']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+      </field>
+    </record>
+
+</odoo>

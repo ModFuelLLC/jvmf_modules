@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Add in configuration items -->
+    <record id="jvmf_res_config_attendance_settings_view_form" model="ir.ui.view">
+      <field name="name">jvmf.res.config.attendance.settings.view.form</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@data-key='hr_attendance']" position="inside">
+          <h2>Auto Clock Out</h2>
+          <div class="row mt16 o_settings_container">
+            <div class="col-12 col-lg-12 o_setting_box" title="# of hours before system checks out employees.">
+              <div class="o_setting_right_pane">
+                <span class="o_form_label">Max Time Clocked In</span>
+                <div>
+                  <field name="max_time" class="oe_inline"/> hours
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+    <!-- Add in configuration items -->
+    <record id="jvmf_res_config_payroll_settings_view_form" model="ir.ui.view">
+      <field name="name">jvmf.res.config.payroll.settings.view.form</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="hr_payroll.res_config_settings_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@data-key='hr_payroll']" position="inside">
+          <h2>Pay Period</h2>
+          <div class="row mt16 o_settings_container">
+            <div class="col-12 col-lg-12 o_setting_box" title="Set an original start of pay period (won't need to modify once set).">
+              <div class="o_setting_right_pane">
+                <span class="o_form_label">Start of Original Pay Period</span>
+                <div class="text-muted">
+                  (Pay periods are assumed to be 2 weeks in length)
+                </div>
+                <field name="pay_period_start_date" class="oe_inline" />
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+    <!-- Add in configuration items -->
+    <record id="jvmf_res_config_employee_settings_view_form" model="ir.ui.view">
+      <field name="name">jvmf.res.config.employee.settings.view.form</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="hr.res_config_settings_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[@data-key='hr']" position="inside">
+          <h2>HR Employee Milestone Notification</h2>
+          <div class="row mt16 o_settings_container">
+            <div class="col-12 col-lg-12 o_setting_box" >
+              <div class="o_setting_right_pane">
+                <span class="o_form_label">HR Contact</span>
+                <div>
+                  Email employee milestone notifications to: <field name="hr_contact" class="oe_inline"/>
+                </div>
+                <div class="text-muted">
+                  Notifications are sent for employee birthdays, anniversaries, or 90 reviews
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Eficent Business and IT Consulting Services S.L.
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo noupdate="1">
+
+        <record id="jc_seq_purchase_request" model="ir.sequence">
+            <field name="name">Joost Corp. Purchase Request</field>
+            <field name="code">purchase.request</field>
+            <field name="prefix">JC-PR</field>
+            <field name="padding">5</field>
+        </record>
+        <record id="jv_seq_purchase_request" model="ir.sequence">
+            <field name="name">Joost Vapor Purchase Request</field>
+            <field name="code">purchase.request</field>
+            <field name="prefix">JV-PR</field>
+            <field name="padding">5</field>
+        </record>
+        <record id="mf_seq_purchase_request" model="ir.sequence">
+            <field name="name">Mod Fuel Purchase Request</field>
+            <field name="code">purchase.request</field>
+            <field name="prefix">MF-PR</field>
+            <field name="padding">5</field>
+        </record>
+
+</odoo>

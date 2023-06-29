@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- Copyright (c) 2018-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+    <data >
+        <function id="wk_show_notes_input_id" model="ir.default" name="set"
+            eval="('website.order.notes.settings', 'wk_show_notes_input', True)"/>
+        <function id="wk_show_desire_date_id" model="ir.default" name="set"
+        eval="('website.order.notes.settings', 'wk_show_desire_date', True)"/>
+        <function id="maxium_delivery_date_id" model="ir.default" name="set"
+        eval="('website.order.notes.settings', 'maxium_delivery_date', 10)"/>
+        <function id="minimum_delivery_date_id" model="ir.default" name="set"
+        eval="('website.order.notes.settings', 'minimum_delivery_date', 2)"/>
+    </data>
+</odoo>

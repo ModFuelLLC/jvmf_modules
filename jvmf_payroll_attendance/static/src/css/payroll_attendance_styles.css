@@ -1,0 +1,27 @@
+.o_list_view .o_list_number{
+  max-width: 100px;
+  text-align: center;
+}
+
+[data-id="employee_count"]{
+  max-width: 50px;
+}
+
+[data-id="phone_number"]{
+  max-width: 100px;
+}
+
+[data-id="parent_id"]{
+  max-width: 150px;
+}
+
+.o_payroll_location_form {
+  font-size: medium;
+  padding-right: .5em;
+  vertical-align: 20%;
+}
+
+.o_payroll_location_kanban {
+  padding-right: .5em;
+  vertical-align: 20%;
+}

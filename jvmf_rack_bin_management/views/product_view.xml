@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_open_putaway_fixed_rule" model="ir.actions.act_window">
+        <field name="context">{'search_default_name': active_id}</field>
+        <field name="name">Putaway Fixed Rules</field>
+        <field name="res_model">stock.putaway.fixed.rule</field>
+        <field name="help" type="html">
+            <p>Click to add a rule.</p>
+            <p>A rule allows you to define a fixed location (rack, shelf, bin) for
+                every product, per warehouse.</p>
+        </field>
+    </record>
+
+    <record id="product_putaway_fixed_rule_form" model="ir.ui.view">
+        <field name="name">product.putaway.fixed.rule.button</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="stock.product_form_view_procurement_button"/>
+        <field name="arch" type="xml">
+            <button name="action_view_stock_move_lines" position="after">
+                <button string="Putaway Fixed Rules"
+                        type="action"
+                        name="%(product_open_putaway_fixed_rule)d"
+                        attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}"
+                        class="oe_stat_button"
+                        icon="fa-bars"
+                        groups="stock.group_stock_user"/>
+            </button>
+        </field>
+    </record>
+
+</odoo>

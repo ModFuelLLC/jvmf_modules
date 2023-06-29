@@ -1,0 +1,11 @@
+<odoo>
+    <!-- Copyright (c) 2018-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+    <!-- See LICENSE file for full copyright and licensing details. -->
+
+	<data noupdate="1">
+        <function id="tawk_site_demo_id" model="ir.default" name="set"
+        eval="('res.config.settings', 'tawk_site_id', '59169f544ac4446b24a6ed0f')"/>
+        <function id="visible_on_demo_id" model="ir.default" name="set"
+        eval="('res.config.settings', 'visible_on', 'both')"/>
+    </data>
+</odoo>

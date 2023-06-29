@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="jcv_view_task_form" model="ir.ui.view">
+      <field name="name">jcv.view.task.form</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_form2" />
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_subtask']" position="before">
+          <button name="action_get_attachment_tree_view" class="oe_stat_button" icon="fa-book"
+              type="object" attrs="{'invisible':  [('attachment_number', '=', 0)]}">
+              <field name="attachment_number" widget="statinfo" string="Documents"/>
+          </button>
+        </xpath>
+        <xpath expr="//field[@name='priority']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//h1" position="after">
+            <h2>
+                <field name='priority' widget='priority'/>
+            </h2>
+            <h5 attrs="{'invisible': [('subtask_count', '=', 0)]}"><field name="subtask_progress" widget="progressbar" title="Subtask Progress"/></h5>
+            <field name="view_module_name_form" invisible="1"/>
+            <field name="view_pull_request_form" invisible="1"/>
+            <field name="view_git_branch_form" invisible="1"/>
+            <field name="view_collaborators_form" invisible="1"/>
+            <field name="view_pr_form" invisible="1"/>
+            <field name="use_subtasks" invisible="1"/>
+            <field name="view_related_task_form" invisible="1"/>
+            <field name="related_task_count" invisible="1"/>
+            <field name="view_website_link_form" invisible="1"/>
+        </xpath>
+        <xpath expr="//button[@name='action_subtask']" position="attributes">
+          <attribute name="attrs">{'invisible': [('use_subtasks', '=', False)]}</attribute>
+        </xpath>
+        <xpath expr="//field[@name='user_id']" position="attributes">
+          <attribute name="domain">[('share','=',False)]</attribute>
+        </xpath>
+        <xpath expr="//field[@name='user_id']" position="after">
+          <field name="collaborator_ids" widget="many2many_tags" options="{'color_field': 'color'}" attrs="{'invisible': [('view_collaborators_form', '=', False)]}"/>
+          <field name="module_name" attrs="{'invisible': [('view_module_name_form', '=', False)]}"/>
+          <field name="pull_request" attrs="{'invisible': [('view_pull_request_form', '=', False)]}"/>
+          <field name="git_branch" attrs="{'invisible': [('view_git_branch_form', '=', False)]}"/>
+          <field name="website_link" widget="url" placeholder="e.g. https://www.modfuelwholesale.com"/>
+        </xpath>
+        <xpath expr="//field[@name='date_finished']" position="after">
+          <field name="related_task" attrs="{'invisible': [('view_related_task_form', '=', False)]}"/>
+          <field name="related_tasks" attrs="{'invisible': [('related_task_count', '=', 0)]}" widget="one2many_list" class="o_jcv_form">
+            <tree>
+              <field name="name" string=" "/>
+            </tree>
+          </field>
+        </xpath>
+        <xpath expr="//notebook/page[@name='extra_info']/group/group/field[@name='parent_id']" position="attributes">
+          <attribute name="attrs">{'invisible' : [('parent_id', '=', False)]}</attribute>
+          <attribute name="readonly">1</attribute>
+        </xpath>
+        <xpath expr="//notebook" position="inside">
+          <page name="prs" string="Purchase Requests" attrs="{'invisible': [('view_pr_form', '=', False)]}">
+            <field name="pr_ids">
+              <tree>
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="requested_by"/>
+                <field name="company_id"/>
+                <field name="state"/>
+              </tree>
+            </field>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_task_priority_tree" model="ir.ui.view">
+      <field name="name">view.task.priority.tree</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_tree2" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <field name='priority' widget='priority' />
+        </xpath>
+      </field>
+    </record>
+    <record id="jvmf_view_task_tree_inherited" model="ir.ui.view">
+      <field name="name">jvmf.view.task.tree.inherited</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="hr_timesheet.view_task_tree2_inherited" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='progress']" position="replace">
+          <field name="subtask_count" invisible="1"/>
+          <field name="subtask_progress" widget="progressbar" attrs="{'invisible': [('subtask_count', '=', 0)]}"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="jcv_task_type_edit" model="ir.ui.view">
+      <field name="name">jcv.project.task.type.form</field>
+      <field name="model">project.task.type</field>
+      <field name="inherit_id" ref="project.task_type_edit" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='auto_validation_kanban_state']" position="after">
+          <field name="is_project_manager" invisible="1"/>
+          <field name="wip_limit" attrs="{'readonly': [('is_project_manager','=',False)]}"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="jcv_edit_project_view_form" model="ir.ui.view">
+      <field name="name">jcv.edit.project.view.form</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='subtask_project_id']" position="before">
+          <field name="use_subtasks"/>
+        </xpath>
+        <xpath expr="//field[@name='subtask_project_id']" position="attributes">
+          <attribute name="attrs">{'invisible': [('use_subtasks', '=', False)]}</attribute>
+        </xpath>
+        <xpath expr="//notebook" position="inside">
+          <page name="additional_fields" string="Additional Fields">
+            <group string="Please select addiontal useable fields">
+              <group string="General">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Useable</th>
+                      <th>Visible in Kanban View</th>
+                    </tr>
+                  </thead>
+  <!-- template for adding more fields
+
+                  <tr>
+                    <td><label for="" string=""/></td>
+                    <td><field name="" class="oe_inline"/></td>
+                    <td><field name="" class="oe_inline"/></td>
+                  </tr>
+  -->
+                  <tbody>
+                    <tr>
+                      <td><label for="view_collaborators_form" string="Collaborators"/></td>
+                      <td><field name="view_collaborators_form" class="oe_inline"/></td>
+                      <td><field name="view_collaborators_kanban" class="oe_inline"/></td>
+                    </tr>
+                    <tr>
+                      <td><label for="view_pr_form" string="Purchase Requests"/></td>
+                      <td><field name="view_pr_form" class="oe_inline"/></td>
+                      <td><field name="view_pr_kanban" class="oe_inline"/></td>
+                    </tr>
+                    <tr>
+                      <td><label for="view_related_task_form" string="Related Task"/></td>
+                      <td><field name="view_related_task_form" class="oe_inline"/></td>
+                      <td><field name="view_related_task_kanban" class="oe_inline"/></td>
+                    </tr>
+                    <tr>
+                      <td><label for="view_website_link_form" string="Web Address"/></td>
+                      <td><field name="view_website_link_form" class="oe_inline"/></td>
+                      <td><field name="view_website_link_kanban" class="oe_inline"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </group>
+              <group string="Software Development">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Useable</th>
+                      <th>Visible in Kanban View</th>
+                    </tr>
+                  </thead>
+  <!-- template for adding more fields
+
+                  <tr>
+                    <td><label for="" string=""/></td>
+                    <td><field name="" class="oe_inline"/></td>
+                    <td><field name="" class="oe_inline"/></td>
+                  </tr>
+  -->
+                  <tbody>
+                    <tr>
+                      <td><label for="view_module_name_form" string="Module Name"/></td>
+                      <td><field name="view_module_name_form" class="oe_inline"/></td>
+                      <td><field name="view_module_name_kanban" class="oe_inline"/></td>
+                    </tr>
+
+                    <tr>
+                      <td><label for="view_pull_request_form" string="Pull Request"/></td>
+                      <td><field name="view_pull_request_form" class="oe_inline"/></td>
+                      <td><field name="view_pull_request_kanban" class="oe_inline"/></td>
+                    </tr>
+                    <tr>
+                      <td><label for="view_git_branch_form" string="Git Branch"/></td>
+                      <td><field name="view_git_branch_form" class="oe_inline"/></td>
+                      <td><field name="view_git_branch_kanban" class="oe_inline"/></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- add additional fields to Kanban view -->
+    <record id="project_task_dev_ext" model="ir.ui.view">
+      <field name="name">project.task.dev.ext</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_kanban"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('o_kanban_record_body')]" position="inside">
+          <field name="view_module_name_kanban" invisible="1"/>
+          <field name="view_pull_request_kanban" invisible="1"/>
+          <field name="view_git_branch_kanban" invisible="1"/>
+          <field name="view_collaborators_kanban" invisible="1"/>
+          <field name="view_pr_kanban" invisible="1"/>
+          <field name="view_related_task_kanban" invisible="1"/>
+          <field name="pr_count" invisible="1"/>
+          <field name="subtask_count" invisible="1"/>
+          <field name="collaborator_count" invisible="1"/>
+          <field name="view_website_link_kanban" invisible="1"/>
+          <field name="website_link" invisible="1"/>
+          <div attrs="{'invisible': ['|', ('module_name', '=', False), ('view_module_name_kanban', '=', False)]}"><strong>Module Name: </strong><field name="module_name"/></div>
+          <div attrs="{'invisible': ['|', ('pull_request', '=', False), ('view_pull_request_kanban', '=', False)]}"><strong>Pull Request: </strong><field name="pull_request"/></div>
+          <div attrs="{'invisible': ['|', ('git_branch', '=', False), ('view_git_branch_kanban', '=', False)]}"><strong>Git Branch: </strong><field name="git_branch"/></div>
+          <div attrs="{'invisible': ['|', ('related_task', '=', False), ('view_related_task_kanban', '=', False)]}"><strong>Related Task: </strong><field name="related_task"/></div>
+          <div attrs="{'invisible': ['|', ('collaborator_count', '=', 0), ('view_collaborators_kanban', '=', False)]}"><strong>Collaborators: </strong><field name="collaborator_ids" widget="many2many_tags"/></div>
+          <div attrs="{'invisible': ['|', ('pr_count', '=', 0), ('view_pr_kanban', '=', False)]}"><strong>Purchase Requests: </strong><field name="pr_ids" widget="many2many_tags"/></div>
+          <div attrs="{'invisible': ['|', ('website_link', '=', False), ('view_website_link_kanban', '=', False)]}"><strong>Website: </strong><a t-attf-href="#{record.website_link.raw_value}" target="_blank">Click Here</a></div>
+          <div attrs="{'invisible': [('subtask_count', '=', 0)]}"><field name="subtask_progress" title="Subtasks" widget="progressbar"/></div>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Add additional fields to default filters -->
+    <record id="project_task_filter_ext" model="ir.ui.view">
+      <field name="name">project.task.filter.ext</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_search_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//filter[@name='user']" position="after">
+          <field name="view_module_name_form"/>
+          <field name="view_pull_request_form"/>
+          <field name="view_git_branch_form"/>
+          <field name="view_collaborators_form"/>
+          <filter name="module_name" string="Module Name" context="{'group_by': 'module_name'}" attrs="{'invisible': [('view_module_name_form', '=', False)]}"/>
+          <filter name="pull_request" string="Pull Request" context="{'group_by': 'pull_request'}" attrs="{'invisible': [('view_pull_request_form', '=', False)]}"/>
+          <filter name="git_branch" context="{'group_by': 'git_branch'}" attrs="{'invisible': [('view_git_branch_form', '=', False)]}"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

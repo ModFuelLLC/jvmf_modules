@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="jvmf_asset_accessory_list">
+    <field name="name">Asset Accessories</field>
+    <field name="model">asset.accessory</field>
+    <field name="arch" type="xml">
+      <tree string="Asset Accessories">
+        <field name="description"/>
+        <field name="accessory_type"/>
+        <field name="default_accessory"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="jvmf_asset_accessory_form_view" model="ir.ui.view">
+    <field name="name">Asset Accessory</field>
+    <field name="model">asset.accessory</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="description"/>
+              <field name="default_accessory"/>
+            </group>
+            <group>
+              <field name="accessory_type"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="jvmf_asset_accessory_type_list">
+    <field name="name">Asset Accessory Types</field>
+    <field name="model">asset.accessory.type</field>
+    <field name="arch" type="xml">
+      <tree string="Asset Accessories">
+        <field name="description"/>
+        <field name="category_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="jvmf_asset_accessory_type_form_view" model="ir.ui.view">
+    <field name="name">Asset Accessory Types</field>
+    <field name="model">asset.accessory.type</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="description"/>
+            </group>
+            <group>
+              <field name="category_id"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_asset_accesory" model="ir.actions.act_window">
+      <field name="name">Asset Accessoriess</field>
+      <field name="res_model">asset.accessory</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_empty_folder" type="html">
+              There are currently no Asset Accessories.
+          </p><p>
+              Click create to make a new accessory.
+          </p>
+      </field>
+  </record>
+
+  <record id="action_asset_accessory_type" model="ir.actions.act_window">
+      <field name="name">Asset Accessory Types</field>
+      <field name="res_model">asset.accessory.type</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_empty_folder" type="html">
+              There are currently no Accessory types.
+          </p><p>
+              Accessory Type records will be displayed here.
+          </p>
+      </field>
+  </record>
+
+  <menuitem name="Asset Accessories"
+    id="jvmf_asset_accessories_menu"
+    parent="jvmf_asset_management.jvmf_asset_loan_management"
+    action="action_asset_accesory"
+    sequence="50"
+    />
+
+  <menuitem name="Asset Accessory Types"
+    id="jvmf_asset_accessory_types_menu"
+    parent="jvmf_asset_management.jvmf_asset_loan_management"
+    action="action_asset_accessory_type"
+    sequence="60"
+    />
+</odoo>

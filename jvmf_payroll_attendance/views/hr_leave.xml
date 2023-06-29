@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="quick_view_holiday" model="ir.ui.view">
+    <field name="name">quick.view.holiday.form</field>
+    <field name="model">hr.leave</field>
+    <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='payslip_status']" position="after">
+        <field name="payslip_ids" widget="many2many_tags" string="Payslips"/>
+      </xpath>
+      <xpath expr="//field[@name='number_of_days']" position="attributes">
+        <attribute name="invisible">0</attribute>
+        <attribute name="groups">hr_holidays.group_hr_holidays_manager</attribute>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

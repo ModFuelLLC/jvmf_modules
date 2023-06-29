@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_asset_loan_manager,access_asset_loan,model_asset_loan,group_asset_loan_manager,1,1,1,1
+access_asset_loan_user,access_asset_loan,model_asset_loan,group_asset_loan_user,1,1,1,1
+access_asset_loan_line_user,access_asset_loan_line,model_asset_loan_line,group_asset_loan_user,1,1,1,1
+access_asset_loan_line_manager,access_asset_loan_line,model_asset_loan_line,group_asset_loan_manager,1,1,1,1
+access_asset_accessories,access_asset_accessories,model_asset_accessory,base.group_user,1,1,1,1
+access_asset_accessory_type,access_asset_accessory_type,model_asset_accessory_type,base.group_user,1,1,1,1

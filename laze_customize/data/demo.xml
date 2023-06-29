@@ -1,0 +1,3068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data noupdate="1">
+    <!-- Demo Product Quantities: Start -->
+      <record id="product_qty_per_page_1" model="product.qty_per_page">
+        <field name="name">12</field>
+      </record>
+
+      <record id="product_qty_per_page_2" model="product.qty_per_page">
+        <field name="name">15</field>
+      </record>
+
+      <record id="product_qty_per_page_3" model="product.qty_per_page">
+        <field name="name">18</field>
+      </record>
+    <!-- Demo Product Quantities: End -->
+
+    <!-- Demo eCommerce Categories: Start -->
+      <record id="laze_product_category_1" model="product.public.category">
+        <field name="name">Home &amp; Living</field>
+        <field name="sequence">0</field>
+      </record>
+
+      <record id="laze_product_category_2" model="product.public.category">
+        <field name="name">Men</field>
+        <field name="sequence">0</field>
+      </record>
+
+      <record id="laze_product_category_3" model="product.public.category">
+        <field name="name">Women</field>
+        <field name="sequence">0</field>
+      </record>
+
+      <record id="laze_product_category_4" model="product.public.category">
+        <field name="name">Kids</field>
+        <field name="sequence">0</field>
+      </record>
+
+      <record id="laze_product_category_5" model="product.public.category">
+        <field name="name">Bed Linen &amp; Furnishing</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_1"/>
+      </record>
+
+      <record id="laze_product_category_6" model="product.public.category">
+        <field name="name">Cushions &amp; Cushion Covers</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_1"/>
+      </record>
+
+      <record id="laze_product_category_7" model="product.public.category">
+        <field name="name">Flooring</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_1"/>
+      </record>
+
+      <record id="laze_product_category_8" model="product.public.category">
+        <field name="name">Lamps and lighting</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_1"/>
+      </record>
+
+      <record id="laze_product_category_9" model="product.public.category">
+        <field name="name">Active Wear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_2"/>
+      </record>
+
+      <record id="laze_product_category_10" model="product.public.category">
+        <field name="name">Topwear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_2"/>
+      </record>
+
+      <record id="laze_product_category_11" model="product.public.category">
+        <field name="name">Bottomwear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_2"/>
+      </record>
+
+      <record id="laze_product_category_12" model="product.public.category">
+        <field name="name">Watches</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_2"/>
+      </record>
+
+      <record id="laze_product_category_13" model="product.public.category">
+        <field name="name">Footwear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_3"/>
+      </record>
+
+      <record id="laze_product_category_14" model="product.public.category">
+        <field name="name">Fusion Wear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_3"/>
+      </record>
+
+      <record id="laze_product_category_15" model="product.public.category">
+        <field name="name">Sports Wear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_3"/>
+      </record>
+
+      <record id="laze_product_category_16" model="product.public.category">
+        <field name="name">Western Wear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_3"/>
+      </record>
+
+      <record id="laze_product_category_17" model="product.public.category">
+        <field name="name">Boys Clothing</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_4"/>
+      </record>
+
+      <record id="laze_product_category_18" model="product.public.category">
+        <field name="name">Brand</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_4"/>
+      </record>
+
+      <record id="laze_product_category_19" model="product.public.category">
+        <field name="name">Girls Clothing</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_4"/>
+      </record>
+
+      <record id="laze_product_category_20" model="product.public.category">
+        <field name="name">Girls Footwear</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_4"/>
+      </record>
+
+      <record id="laze_product_category_21" model="product.public.category">
+        <field name="name">Bedding Sets</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_5"/>
+      </record>
+
+      <record id="laze_product_category_22" model="product.public.category">
+        <field name="name">Bedsheets</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_5"/>
+      </record>
+
+      <record id="laze_product_category_23" model="product.public.category">
+        <field name="name">Blankets, Quilts and Dohars</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_5"/>
+      </record>
+
+      <record id="laze_product_category_24" model="product.public.category">
+        <field name="name">Carpets</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_6"/>
+      </record>
+
+      <record id="laze_product_category_25" model="product.public.category">
+        <field name="name">Door Mats</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_6"/>
+      </record>
+
+      <record id="laze_product_category_26" model="product.public.category">
+        <field name="name">Floor Mats and Dhurries</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_6"/>
+      </record>
+
+      <record id="laze_product_category_27" model="product.public.category">
+        <field name="name">Pillow &amp; Pillow Coves</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_5"/>
+      </record>
+
+      <record id="laze_product_category_28" model="product.public.category">
+        <field name="name">Casual Shirts</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_10"/>
+      </record>
+
+      <record id="laze_product_category_29" model="product.public.category">
+        <field name="name">Jackets</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_10"/>
+      </record>
+
+      <record id="laze_product_category_30" model="product.public.category">
+        <field name="name">Suits</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_10"/>
+      </record>
+
+      <record id="laze_product_category_31" model="product.public.category">
+        <field name="name">T-Shirts</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_10"/>
+      </record>
+
+      <record id="laze_product_category_32" model="product.public.category">
+        <field name="name">Dresses &amp; Jumpsuits</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_16"/>
+      </record>
+
+      <record id="laze_product_category_33" model="product.public.category">
+        <field name="name">Jeans &amp; Jeggings</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_16"/>
+      </record>
+
+      <record id="laze_product_category_34" model="product.public.category">
+        <field name="name">Sweaters</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_16"/>
+      </record>
+
+      <record id="laze_product_category_35" model="product.public.category">
+        <field name="name">Sweatshirts</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_16"/>
+      </record>
+
+      <record id="laze_product_category_36" model="product.public.category">
+        <field name="name">Jeans &amp; Trousers</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_17"/>
+      </record>
+
+      <record id="laze_product_category_37" model="product.public.category">
+        <field name="name">Shirts</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_17"/>
+      </record>
+
+      <record id="laze_product_category_38" model="product.public.category">
+        <field name="name">T-Shirts</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_17"/>
+      </record>
+
+      <record id="laze_product_category_39" model="product.public.category">
+        <field name="name">Track Pants</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_17"/>
+      </record>
+
+      <record id="laze_product_category_40" model="product.public.category">
+        <field name="name">Clothing Sets</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_19"/>
+      </record>
+
+      <record id="laze_product_category_41" model="product.public.category">
+        <field name="name">Dresses</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_19"/>
+      </record>
+
+      <record id="laze_product_category_42" model="product.public.category">
+        <field name="name">Skirts &amp; Shorts</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_19"/>
+      </record>
+
+      <record id="laze_product_category_43" model="product.public.category">
+        <field name="name">Tops</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_19"/>
+      </record>
+
+      <record id="laze_product_category_44" model="product.public.category">
+        <field name="name">Flooring</field>
+        <field name="sequence">0</field>
+        <field name="parent_id" ref="laze_product_category_6"/>
+      </record>
+    <!-- Demo eCommerce Categories: End -->
+
+    <!-- Demo Products: Start -->
+      <record id="laze_product_template_1" model="product.template">
+        <field name="name">Dresses &amp; Jumpsuits</field>
+        <field name="type">product</field>
+        <field name="list_price">47</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-001</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_3'), ref('laze_product_category_13'), ref('laze_product_category_14'), ref('laze_product_category_15'), ref('laze_product_category_16'), ref('laze_product_category_32'), ref('laze_product_category_33'), ref('laze_product_category_34'), ref('laze_product_category_35')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_001.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_product_template_2" model="product.template">
+        <field name="name">Hand Bag</field>
+        <field name="type">product</field>
+        <field name="list_price">80</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-002</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_3'), ref('laze_product_category_13'), ref('laze_product_category_14'), ref('laze_product_category_15'), ref('laze_product_category_16'), ref('laze_product_category_34'), ref('laze_product_category_35')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_002.jpg"/>
+        <field name="website_published" eval="True"/> 
+      </record>
+
+      <record id="laze_product_template_3" model="product.template">
+        <field name="name">Flats &amp; Casual Bag</field>
+        <field name="type">consu</field>
+        <field name="list_price">107</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-003</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_3'), ref('laze_product_category_13'), ref('laze_product_category_14'), ref('laze_product_category_15'), ref('laze_product_category_16'), ref('laze_product_category_32'), ref('laze_product_category_33'), ref('laze_product_category_34'), ref('laze_product_category_35')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_003.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_product_template_4" model="product.template">
+        <field name="name">Formal Shirts</field>
+        <field name="type">product</field>
+        <field name="list_price">89</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-004</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_3'), ref('laze_product_category_13'), ref('laze_product_category_14'), ref('laze_product_category_15'), ref('laze_product_category_16'), ref('laze_product_category_32'), ref('laze_product_category_33'), ref('laze_product_category_34'), ref('laze_product_category_35')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_004.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_product_template_5" model="product.template">
+        <field name="name">Home chair</field>
+        <field name="type">product</field>
+        <field name="list_price">71</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-005</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_2'), ref('laze_product_category_9'), ref('laze_product_category_10'), ref('laze_product_category_11'), ref('laze_product_category_12'), ref('laze_product_category_28'), ref('laze_product_category_29'), ref('laze_product_category_30'), ref('laze_product_category_31')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_005.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_product_template_6" model="product.template">
+        <field name="name">King Size Sofa</field>
+        <field name="type">product</field>
+        <field name="list_price">34</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-006</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_2'), ref('laze_product_category_9'), ref('laze_product_category_10'), ref('laze_product_category_11'), ref('laze_product_category_12'), ref('laze_product_category_28'), ref('laze_product_category_29'), ref('laze_product_category_30'), ref('laze_product_category_31')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_006.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_product_template_7" model="product.template">
+        <field name="name">Large Size Sofa</field>
+        <field name="type">product</field>
+        <field name="list_price">56</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-007</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_2'), ref('laze_product_category_9'), ref('laze_product_category_10'), ref('laze_product_category_11'), ref('laze_product_category_12'), ref('laze_product_category_28'), ref('laze_product_category_29'), ref('laze_product_category_30'), ref('laze_product_category_31')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_007.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_product_template_8" model="product.template">
+        <field name="name">Watch</field>
+        <field name="type">consu</field>
+        <field name="list_price">21</field>
+        <field name="standard_price">10</field>
+        <field name="default_code">P-008</field>
+        <field name="inventory_availability">never</field>
+        <field name="public_categ_ids" eval="[(6,0,[ref('laze_product_category_2'), ref('laze_product_category_9'), ref('laze_product_category_10'), ref('laze_product_category_11'), ref('laze_product_category_12'), ref('laze_product_category_28'), ref('laze_product_category_29'), ref('laze_product_category_30'), ref('laze_product_category_31')])]"/>
+        <field name="image" type="base64" file="laze_customize/static/src/img/demo-images/prod_008.jpg"/>
+        <field name="website_published" eval="True"/>
+      </record>
+    <!-- Demo Products: End -->
+
+    <!-- Demo Mega-menus: Start -->
+      <record id="megamenu_product_listing_1" model="megamenu.content">
+        <field name="name">Products List</field>
+        <field name="active" eval="True"/>
+        <field name="is_header" eval="True"/>
+        <field name="main_content_type">product_list</field>
+        <field name="no_of_columns">4</field>
+        <field name="product_ids" eval="[(6, 0, [ref('laze_product_template_1'), ref('laze_product_template_2'), ref('laze_product_template_3'), ref('laze_product_template_4'), ref('laze_product_template_5'), ref('laze_product_template_6'), ref('laze_product_template_7'), ref('laze_product_template_8')])]"/>
+
+      </record>
+
+      <record id="megamenu_category_listing_1" model="megamenu.content">
+        <field name="name">Categories List</field>
+        <field name="active" eval="True"/>
+        <field name="main_content_type">category_list</field>
+        <field name="no_of_columns">4</field>
+        <field name="category_ids" eval="[(6, 0, [ref('laze_product_category_1'), ref('laze_product_category_5'), ref('laze_product_category_6'), ref('laze_product_category_7'), ref('laze_product_category_8'), ref('laze_product_category_2'), ref('laze_product_category_9'), ref('laze_product_category_10'), ref('laze_product_category_11'), ref('laze_product_category_12'), ref('laze_product_category_3'), ref('laze_product_category_13'), ref('laze_product_category_14'), ref('laze_product_category_15'), ref('laze_product_category_16'), ref('laze_product_category_4'), ref('laze_product_category_17'), ref('laze_product_category_18'), ref('laze_product_category_19'), ref('laze_product_category_20')])]"/>
+      </record>
+    <!-- Demo Mega-menus: End -->
+
+    <!-- Demo Tab Configurations: Start -->
+      <record id="tab_config_1" model="multitab.configure">
+        <field name="name">Popular</field>
+        <field name="active" eval="True"/>
+      </record>
+
+      <record id="tab_config_2" model="multitab.configure">
+        <field name="name">Specials</field>
+        <field name="active" eval="True"/>
+      </record>
+
+      <record id="tab_config_3" model="multitab.configure">
+        <field name="name">Best Sellers</field>
+        <field name="active" eval="True"/>
+      </record>
+
+      <record id="tab_config_4" model="multitab.configure">
+        <field name="name">Most Viewed</field>
+        <field name="active" eval="True"/>
+      </record>
+
+      <record id="tab_config_5" model="multitab.configure">
+        <field name="name">Featured Products</field>
+        <field name="active" eval="True"/>
+      </record>
+    <!-- Demo Tab Configurations: End -->
+
+    <!-- Demo Tab Products: Start -->
+      <record id="tab_products_1" model="tab.products">
+        <field name="product_id" ref="laze_product_template_1"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_1"/>
+      </record>
+
+      <record id="tab_products_2" model="tab.products">
+        <field name="product_id" ref="laze_product_template_2"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_1"/>
+      </record>
+
+      <record id="tab_products_3" model="tab.products">
+        <field name="product_id" ref="laze_product_template_3"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_1"/>
+      </record>
+
+      <record id="tab_products_4" model="tab.products">
+        <field name="product_id" ref="laze_product_template_4"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_1"/>
+      </record>
+
+      <record id="tab_products_5" model="tab.products">
+        <field name="product_id" ref="laze_product_template_5"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_2"/>
+      </record>
+
+      <record id="tab_products_6" model="tab.products">
+        <field name="product_id" ref="laze_product_template_6"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_2"/>
+      </record>
+
+      <record id="tab_products_7" model="tab.products">
+        <field name="product_id" ref="laze_product_template_7"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_2"/>
+      </record>
+
+      <record id="tab_products_8" model="tab.products">
+        <field name="product_id" ref="laze_product_template_8"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_2"/>
+      </record>
+
+      <record id="tab_products_9" model="tab.products">
+        <field name="product_id" ref="laze_product_template_2"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_2"/>
+      </record>
+
+      <record id="tab_products_10" model="tab.products">
+        <field name="product_id" ref="laze_product_template_1"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_11" model="tab.products">
+        <field name="product_id" ref="laze_product_template_6"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_12" model="tab.products">
+        <field name="product_id" ref="laze_product_template_5"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_13" model="tab.products">
+        <field name="product_id" ref="laze_product_template_8"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_14" model="tab.products">
+        <field name="product_id" ref="laze_product_template_7"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_15" model="tab.products">
+        <field name="product_id" ref="laze_product_template_4"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_16" model="tab.products">
+        <field name="product_id" ref="laze_product_template_3"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_3"/>
+      </record>
+
+      <record id="tab_products_17" model="tab.products">
+        <field name="product_id" ref="laze_product_template_2"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_4"/>
+      </record>
+
+      <record id="tab_products_18" model="tab.products">
+        <field name="product_id" ref="laze_product_template_5"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_4"/>
+      </record>
+
+      <record id="tab_products_19" model="tab.products">
+        <field name="product_id" ref="laze_product_template_7"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_4"/>
+      </record>
+
+      <record id="tab_products_20" model="tab.products">
+        <field name="product_id" ref="laze_product_template_4"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_4"/>
+      </record>
+
+      <record id="tab_products_21" model="tab.products">
+        <field name="product_id" ref="laze_product_template_1"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_22" model="tab.products">
+        <field name="product_id" ref="laze_product_template_2"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_23" model="tab.products">
+        <field name="product_id" ref="laze_product_template_3"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_24" model="tab.products">
+        <field name="product_id" ref="laze_product_template_4"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_25" model="tab.products">
+        <field name="product_id" ref="laze_product_template_5"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_26" model="tab.products">
+        <field name="product_id" ref="laze_product_template_6"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_27" model="tab.products">
+        <field name="product_id" ref="laze_product_template_7"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+
+      <record id="tab_products_28" model="tab.products">
+        <field name="product_id" ref="laze_product_template_8"/>
+        <field name="sequence">0</field>
+        <field name="tab_id" ref="tab_config_5"/>
+      </record>
+    <!-- Demo Tab Products: End -->
+
+    <!-- Demo Slider Collection Configuration: Start -->
+      <record id="collection_configure_1" model="collection.configure">
+        <field name="name">New Arrivals</field>
+        <field name="active" eval="True"/>
+        <field name="tab_collection_ids" eval="[(6, 0, [ref('tab_config_1'), ref('tab_config_2'), ref('tab_config_3'), ref('tab_config_4')])]"/>
+      </record>
+
+      <record id="collection_configure_2" model="collection.configure">
+        <field name="name">New Collections</field>
+        <field name="active" eval="True"/>
+        <field name="tab_collection_ids" eval="[(6, 0, [ref('tab_config_2'), ref('tab_config_3'), ref('tab_config_4')])]"/>
+      </record>
+    <!-- Demo Slider Collection Configuration: End -->
+    
+    <!-- Demo Blog Blog: Start -->
+      <record id="laze_blog_blog_1" model="blog.blog">
+        <field name="name">Trending Blogs</field>
+        <field name="subtitle">Get in touch with us</field>
+      </record>
+    <!-- Demo Blog Blog: End -->
+
+    <!-- Demo Blog Tags: Start -->
+      <record id="laze_blog_tag_1" model="blog.tag">
+        <field name="name">Fictional</field>
+      </record>
+
+      <record id="laze_blog_tag_2" model="blog.tag">
+        <field name="name">Wildlife</field>
+      </record>
+
+      <record id="laze_blog_tag_3" model="blog.tag">
+        <field name="name">Technical</field>
+      </record>
+    <!-- Demo Blog Tags: End -->
+
+    <!-- Demo Blog Posts: Start -->
+      <record id="laze_blog_post_1" model="blog.post">
+        <field name="blog_id" ref="laze_blog_blog_1"/>
+        <field name="cover_properties">{"opacity": 0.2, "resize_class": "cover container-fluid cover_full", "background-image": "url(http://odoo-snippets.atharvasystem.com/source/img/portfolio-item1.jpg)", "background-color": "oe_black"}</field>
+        <field name="name">Mas Creations Doctor Workshop highstool by Masquespacio</field>
+        <field name="subtitle">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('laze_blog_tag_1'), ref('laze_blog_tag_2'), ref('laze_blog_tag_3')])]"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_blog_post_2" model="blog.post">
+        <field name="blog_id" ref="laze_blog_blog_1"/>
+        <field name="cover_properties">{"opacity": 0.2, "resize_class": "cover container-fluid cover_full", "background-image": "url(http://odoo-snippets.atharvasystem.com/source/img/testimonial-bg1.jpg)", "background-color": "oe_black"}</field>
+        <field name="name">Steady furniture for Sonos concept store, Berlin – Germany</field>
+        <field name="subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('laze_blog_tag_1'), ref('laze_blog_tag_2')])]"/>
+        <field name="website_published" eval="True"/>
+      </record>
+
+      <record id="laze_blog_post_3" model="blog.post">
+        <field name="blog_id" ref="laze_blog_blog_1"/>
+        <field name="cover_properties">{"opacity": 0.2, "resize_class": "cover container cover_narrow", "background-image": "url(http://odoo-snippets.atharvasystem.com/source/img/portfolio-item2.jpg)", "background-color": "oe_black"}</field>
+        <field name="name">Steve Stool and Bench by Liqui Group</field>
+        <field name="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('laze_blog_tag_2'), ref('laze_blog_tag_3')])]"/>
+        <field name="website_published" eval="True"/>
+      </record>
+    <!-- Demo Blog Posts: End -->
+
+    <!-- Demo Blog Configure: Start -->
+      <record id="laze_blog_configure_1" model="blog.configure">
+        <field name="name">Latest Blog</field>
+        <field name="active" eval="True"/>
+        <field name="blog_ids" eval="[(6, 0, [ref('laze_blog_post_1'), ref('laze_blog_post_2'), ref('laze_blog_post_3')])]"/>
+      </record>
+    <!-- Demo Blog Configure: End -->
+
+    <!-- Demo Page Views: Start -->
+     <!-- 
+      =============================
+      Home Page 1
+      ============================= -->
+      <record id="home_option_1_page_view" model="ir.ui.view">
+        <field name="name">Home Option 1 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.homepage1</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t name="Homepage" t-name="website.homepage1">
+            <t t-call="website.layout">
+              <t t-set="pageName" t-value="'homepage'"/>
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-home-slider-v12-01">
+                  <div id="myCarousel1541054875470" class="s_carousel s_carousel_default carousel slide">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel1541054875470" data-slide-to="0"/>
+                      <li data-target="#myCarousel1541054875470" data-slide-to="1" class="active"/>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item" data-name="Slide" style="background-color: rgb(250, 247, 238);">
+                        <div class="container">
+                          <div class="row align-items-center">
+                            <div class="col-lg-6">
+                              <div class="banner-text">
+                                <h6 class="o_default_snippet_text">Best Offer Of The Month</h6>
+                                <h4 class="o_default_snippet_text">Discover new ways to dress this spring</h4>
+                                <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                <div class="btn-bar">
+                                  <a class="l-btn-dark o_default_snippet_text" href="#">Discover Now</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <img src="/laze_customize/static/src/img/banner-v12.png" data-original-title="" title="" aria-describedby="tooltip206087"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item active" data-name="Slide" style="background-color: rgb(250, 247, 238);">
+                        <div class="container">
+                          <div class="row align-items-center">
+                            <div class="col-lg-6">
+                              <div class="banner-text">
+                                <h6 class="o_default_snippet_text">Best Offer Of The Month</h6>
+                                <h4 class="o_default_snippet_text">Discover new ways to dress this spring</h4>
+                                <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                <div class="btn-bar">
+                                  <a class="l-btn-dark o_default_snippet_text" href="#">Discover Now</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <img src="/laze_customize/static/src/img/banner-v12-01.png"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-control-prev" data-target="#myCarousel1541054875470" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                      <span class="carousel-control-prev-icon"/>
+                      <span class="sr-only o_default_snippet_text">Previous</span>
+                    </div>
+                    <div class="carousel-control-next" data-target="#myCarousel1541054875470" data-slide="next" role="img" aria-label="Next" title="Next">
+                      <span class="carousel-control-next-icon"/>
+                      <span class="sr-only o_default_snippet_text">Next</span>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-promo-v2">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="acss-box">
+                          <div class="acss-img">
+                            <a href="#">
+                              <img src="/web/image/830/laze-banner-v2-7.png" data-original-title="" title="" aria-describedby="tooltip418774"/>
+                            </a>
+                          </div>
+                          <div class="acss-text">
+                            <div class="title">New Collections</div>
+                            <div class="link">
+                              <a href="#" class="o_default_snippet_text">Shop Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="acss-box">
+                          <div class="acss-img">
+                            <a href="#">
+                              <img src="/web/image/828/laze-banner-v2-8.png" data-original-title="" title="" aria-describedby="tooltip536282"/>
+                            </a>
+                          </div>
+                          <div class="acss-text">
+                            <div class="title">40% Off On New Collections</div>
+                            <div class="link">
+                              <a href="#" class="o_default_snippet_text">Shop Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="acss-box">
+                          <div class="acss-img">
+                            <a href="#">
+                              <img src="/web/image/832/laze-banner-v2-9.png" data-original-title="" title="" aria-describedby="tooltip929546"/>
+                            </a>
+                          </div>
+                          <div class="acss-text">
+                            <div class="title">End OF Season 50% Sale</div>
+                            <div class="link">
+                              <a href="#" class="o_default_snippet_text">Shop Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Dynamic Snippets -->
+                <section class="s_product_slider" data-snippet_type="single" data-collection_id="5" data-collection_name="New Winter Collection 2018" data-snippet_layout="grid">
+                  <div class="container">
+                    <div class="seaction-head">
+                      <h2>New Winter Collection 2018</h2>
+                    </div>
+                  </div>
+                </section>
+                <!-- / -->
+
+                <section class="deal-snippets" style="background-image:url(/laze_customize/static/src/img/deal-of-the-day.png)">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-md-8">
+                        <div class="ds-deal-box">
+                          <h2 class="o_default_snippet_text">Deal of the day</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                          <div id="getting-started" class="ds-deal-started">
+                            <ul>
+                              <li>
+                                <span>00</span>
+                                <label>days</label>
+                              </li>
+                              <li>
+                                <span>12</span>
+                                <label>hr</label>
+                              </li>
+                              <li>
+                                <span>11</span>
+                                <label>min</label>
+                              </li>
+                              <li>
+                                <span>12</span>
+                                <label>sec</label>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="btn-bar">
+                            <a class="l-btn-dark o_default_snippet_text" href="#">Discover Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Dynamic Snippets -->
+                <section class="as-latest-blog web_blog_slider" data-blog-id="0" data-blog_list-id="1">
+                  <div class="seaction-head">
+                    <h1>Blog Slider</h1>
+                  </div>
+                </section>
+                <!-- / -->
+
+                <section class="as-policy-box-v1">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-plane"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Free Shiping</h6>
+                            <span class="o_default_snippet_text">On order over $100</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-headphones"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Support Online</h6>
+                            <span class="o_default_snippet_text">Call us: 000 000 000</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-tag"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Discount</h6>
+                            <span class="o_default_snippet_text">5% on order over $190</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-refresh"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Money Back</h6>
+                            <span class="o_default_snippet_text">100% money back guarantee</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </t>
+          </t>
+        </field>
+      </record>
+
+      <!-- 
+      =============================
+      Home Page 2
+      ============================= -->
+      <record id="home_option_2_view" model="ir.ui.view">
+        <field name="name">Home Option 2 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.home_option_2</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t t-name="website.home_option_2">
+            <t t-call="website.layout">
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-home-slider-v2">
+                  <div id="as_home_slider02" class="s_carousel s_carousel_default carousel slide">
+                    <ol class="carousel-indicators">
+                      <li data-target="#as_home_slider02" data-slide-to="0" class="active"/>
+                      <li data-target="#as_home_slider02" data-slide-to="1"/>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item item-01 active" data-name="Slide" style="">
+                        <div class="container">
+                          <div class="row align-items-center">
+                            <div class="hs-cols col-lg-6">
+                              <div class="hs-text">
+                                <label>New Collection</label>
+                                <h2>Winter Sale Get 30% Off<br/> On All New Products</h2>
+                                <a href="#" class="hs-link">Shop Now</a>
+                              </div>
+                            </div>
+                            <div class="hs-cols col-lg-6">
+                              <img src="/laze_customize/static/src/img/laze-banner-v2-1.png" alt=""/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item item-02" data-name="Slide" style="">
+                        <div class="container">
+                          <div class="row align-items-center">
+                            <div class="hs-cols col-lg-6">
+                              <div class="hs-text">
+                                <label>New Collection</label>
+                                <h2>Winter Sale Get 30% Off<br/> On All New Products</h2>
+                                <a href="#" class="hs-link">Shop Now</a>
+                              </div>
+                            </div>
+                            <div class="hs-cols col-lg-6">
+                              <img src="/laze_customize/static/src/img/laze-banner-v2-2.png" alt=""/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-control-prev" data-target="#as_home_slider02" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                      <span class="carousel-control-prev-icon"/>
+                      <span class="sr-only o_default_snippet_text">Previous</span>
+                    </div>
+                    <div class="carousel-control-next" data-target="#as_home_slider02" data-slide="next" role="img" aria-label="Next" title="Next">
+                      <span class="carousel-control-next-icon"/>
+                      <span class="sr-only o_default_snippet_text">Next</span>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-promo-v2">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="acss-box">
+                          <div class="acss-img">
+                            <a href="#">
+                              <img src="/laze_customize/static/src/img/laze-banner-v2-3.png"/>
+                            </a>
+                          </div>
+                          <div class="acss-text">
+                            <div class="title">New Collections</div>
+                            <div class="link">
+                              <a href="#">Shop Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="acss-box">
+                          <div class="acss-img">
+                            <a href="#">
+                              <img src="/laze_customize/static/src/img/laze-banner-v2-4.png"/>
+                            </a>
+                          </div>
+                          <div class="acss-text">
+                            <div class="title">New Collections</div>
+                            <div class="link">
+                              <a href="#">Shop Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="acss-box">
+                          <div class="acss-img">
+                            <a href="#">
+                              <img src="/laze_customize/static/src/img/laze-banner-v2-5.png"/>
+                            </a>
+                          </div>
+                          <div class="acss-text">
+                            <div class="title">New Collections</div>
+                            <div class="link">
+                              <a href="#">Shop Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="s_product_slider o_default_snippet_text" data-snippet_type="multi" data-collection_id="2" data-collection_name="New Collections" data-snippet_layout="horiz_tab">
+                  <div class="container">
+                    <div class="seaction-head">
+                      <h2>New Collections</h2>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-promo-v2-01" style="background-image:url(/laze_customize/static/src/img/laze-banner-v2-6.png);">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6 aspro-col">
+                        <div class="aspro-text">
+                          <label class="o_default_snippet_text">New Collection</label>
+                          <h2 class="o_default_snippet_text">Winter Sale Get 30% Off On All New Products</h2>
+                          <a href="#" class="hs-link o_default_snippet_text">Shop Now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="s_product_slider o_default_snippet_text" data-snippet_type="single" data-collection_id="1" data-collection_name="Popular" data-snippet_layout="slider">
+                  <div class="container">
+                    <div class="seaction-head">
+                      <h2>Popular</h2>
+                    </div>
+                  </div>
+                </section>
+                <section class="testimonial-section-v2">
+                  <div class="container">
+                    <div class="seaction-head">
+                      <h2 class="o_default_snippet_text">Testimonial</h2>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="testimonial-v2">
+                          <i class="fa fa-quote-right"/>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                          <div class="t-name">
+                            <label class="o_default_snippet_text">James More</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="testimonial-v2">
+                          <i class="fa fa-quote-right"/>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                          <div class="t-name">
+                            <label class="o_default_snippet_text">James More</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="testimonial-v2">
+                          <i class="fa fa-quote-right"/>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                          <div class="t-name">
+                            <label class="o_default_snippet_text">James More</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-latest-blog web_blog_slider" data-blog-id="0" data-blog_list-id="1">
+                  <div class="seaction-head">
+                    <h1>Blog Slider</h1>
+                  </div>
+                </section>
+                <section class="tqt-product-brand-slider bg-100 oe_custom_bg" data-brand-count="5" data-brand-label="Our Brands" style=""/>
+              </div>
+            </t>
+          </t>
+        </field>
+      </record>
+
+      <!-- 
+      =============================
+      Home Page 3
+      ============================= -->
+      <record id="home_option_3_view" model="ir.ui.view">
+        <field name="name">Home Option 3 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.home_option_3</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t t-name="website.home_option_3">
+            <t t-call="website.layout">
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-home-slider">
+                  <div id="myCarousel1541070285636" class="s_carousel s_carousel_default carousel slide">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel1541070285636" data-slide-to="0" class="active"/>
+                      <li data-target="#myCarousel1541070285636" data-slide-to="1"/>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" style="background-image: url(/laze_customize/static/src/img/extreme-skier.jpg);" data-name="Slide">
+                        <div class="container">
+                          <blockquote class="lms-text">
+                            <h2 class="o_default_snippet_text">Laze Sport</h2>
+                            <div class="clearfix"/>
+                            <p class="o_default_snippet_text">Outdoors</p>
+                            <div class="clearfix"/>
+                            <div class="btn-box">
+                              <a class="creative-btn1 o_default_snippet_text" href="#">Shop Now</a>
+                            </div>
+                          </blockquote>
+                        </div>
+                      </div>
+                      <div class="carousel-item" style="background-image: url(/laze_customize/static/src/img/surfing.jpg);" data-name="Slide">
+                        <div class="container">
+                          <blockquote class="lms-text">
+                            <h2 class="o_default_snippet_text">Laze Sport</h2>
+                            <div class="clearfix"/>
+                            <p class="o_default_snippet_text">Outdoors</p>
+                            <div class="clearfix"/>
+                            <div class="btn-box">
+                              <a class="creative-btn1 o_default_snippet_text" href="#">Shop Now</a>
+                            </div>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-control-prev" data-target="#myCarousel1541070285636" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                      <span class="carousel-control-prev-icon"/>
+                      <span class="sr-only o_default_snippet_text">Previous</span>
+                    </div>
+                    <div class="carousel-control-next" data-target="#myCarousel1541070285636" data-slide="next" role="img" aria-label="Next" title="Next">
+                      <span class="carousel-control-next-icon"/>
+                      <span class="sr-only o_default_snippet_text">Next</span>
+                    </div>
+                  </div>
+                </section>
+                <section class="col-3-boxs">
+                  <div class="container">
+                    <section class="seaction-head">
+                      <h1 class="o_default_snippet_text">Welcome To Our Theme</h1>
+                      <p class="o_default_snippet_text">Odoo Responsive Theme</p>
+                    </section>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="c3b-inner">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-line-chart"/>
+                          </span>
+                          <h2 class="o_default_snippet_text"><label class="o_default_snippet_text">Best Productivity</label> Grow Your Rebvenue </h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="c3b-inner">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-money"/>
+                          </span>
+                          <h2 class="o_default_snippet_text"><label class="o_default_snippet_text">Best Productivity</label> Grow Your Rebvenue </h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="c3b-inner">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-bullseye"/>
+                          </span>
+                          <h2 class="o_default_snippet_text"><label class="o_default_snippet_text">Best Productivity</label> Grow Your Rebvenue </h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="feature-left-img bg-100 oe_custom_bg">
+                  <div class="row">
+                    <div class="col-lg-6 fli-img">
+                      <div class="fli-img-inner">
+                        <img src="/laze_customize/static/src/img/mac-1.png" title="" alt=""/>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 fli-desc">
+                      <section class="seaction-head">
+                        <h1 class="o_default_snippet_text">Our Elegant Design</h1>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                      </section>
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                          <div class="fli-box">
+                            <span class="iicon">
+                              <i class="color-theme fa fa-money"/>
+                            </span>
+                            <h3 class="o_default_snippet_text"> Grow Your Rebvenue </h3>
+                            <div class="desc">
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                          <div class="fli-box">
+                            <span class="iicon">
+                              <i class="color-theme fa fa-bullseye"/>
+                            </span>
+                            <h3 class="o_default_snippet_text"> Grow Your Rebvenue </h3>
+                            <div class="desc">
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                          <div class="fli-box">
+                            <span class="iicon">
+                              <i class="color-theme fa fa-sticky-note"/>
+                            </span>
+                            <h3 class="o_default_snippet_text">Project Planning</h3>
+                            <div class="desc">
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                          <div class="fli-box">
+                            <span class="iicon">
+                              <i class="color-theme fa fa-tag"/>
+                            </span>
+                            <h3 class="o_default_snippet_text">Branding</h3>
+                            <div class="desc">
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="left-bgimg pt0" style="background-image: url(&quot;/laze_customize/static/src/img/as-promo.jpg&quot;); background-position: 27.3% 52.11%;">
+                  <div class="row">
+                    <div class="col-lg-6 fli-desc bg-white pull-right pt208 pb152">
+                      <section class="seaction-head">
+                        <h1>Our Elegant Design</h1>
+                      </section>
+                      <div class="pb-desc">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit.<br/></p>
+                      </div>
+                      <div class="buts">
+                        <a class="creative-btn1 o_default_snippet_text" href="#" data-original-title="" title="" aria-describedby="tooltip266632">More Info</a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="services-boxs bg-100 oe_custom_bg">
+                  <div class="container">
+                    <section class="seaction-head">
+                      <h1 class="o_default_snippet_text">Services and Awesome Skills</h1>
+                      <p class="o_default_snippet_text">Odoo Theme Developments</p>
+                    </section>
+                    <div class="row">
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-sticky-note"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">Project Planning</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-tag"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">Branding</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-map-signs"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">Decide Process</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-wrench"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">Build Form</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-paint-brush"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">Design Workflow</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="color-theme fa fa-rocket"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">Go Live</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="teams-boxs">
+                  <div class="container">
+                    <section class="seaction-head">
+                      <h1 class="o_default_snippet_text">Our Team</h1>
+                      <p class="o_default_snippet_text">Our Talented Team</p>
+                    </section>
+                    <div class="row">
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team-1.png" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">John Smith</h4>
+                          <label class="o_default_snippet_text">CEO</label>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team-2.png" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">Aimee</h4>
+                          <label class="o_default_snippet_text">HR Manager</label>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team-3.png" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">Alice</h4>
+                          <label class="o_default_snippet_text">Web Developer</label>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team-4.png" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">Lee</h4>
+                          <label class="o_default_snippet_text">Web Designer</label>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-contact-us" style="background-image: url(/laze_customize/static/src/img/our-work.jpg)">
+                  <div class="container">
+                    <section class="seaction-head">
+                      <h1 class="o_default_snippet_text">Contact With Us</h1>
+                      <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    </section>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="ascu-info">
+                          <p class="o_default_snippet_text"><i class="fa fa-phone"/> +44 000 000 0000</p>
+                          <p>
+                            <i class="fa fa-envelope"/>
+                            <a href="mailto:info@yourcompany.example.com" class="o_default_snippet_text"> info@yourcompany.example.com</a>
+                          </p>
+                          <p class="o_default_snippet_text"><i class="fa fa-map-marker"/> 514 Creekside Court <br/>Erlanger, KY 41018</p>
+                          <p class="p-social">
+                            <label>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </label>
+                            <label>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </label>
+                            <label>
+                              <a href="#">
+                                <i class="fa fa-linkedin"/>
+                              </a>
+                            </label>
+                            <label>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </label>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-8">
+                        <form action="/website_form/" method="post" data-model_name="crm.lead" data-success_page="/contactus-thank-you" class="s_website_form form-horizontal container-fluid mt32" enctype="multipart/form-data" data-editable-form="false">
+                          <input type="hidden" name="csrf_token" value="0a786815fa1d697382b30203800e9cb223f76afdo1541073880"/>
+                          <div class="ascu-form">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <input type="text" class="form-control o_website_form_input" name="contact_name" required="" placeholder="Name*" value=""/>
+                              </div>
+                              <div class="col-lg-6">
+                                <input type="text" class="form-control o_website_form_input" name="email_from" required="" placeholder="Email*" value=""/>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <input type="text" class="form-control o_website_form_input" name="name" required="" placeholder="Subject*" value=""/>
+                              </div>
+                              <div class="col-lg-6">
+                                <input type="text" class="form-control o_website_form_input" name="phone" placeholder="Phone" value=""/>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <textarea class="form-control o_website_form_input" name="description" required="" placeholder="Message*"/>
+                              </div>
+                              <div class="col-lg-12">
+                                <div class="form-group">
+                                  <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+                                    <span class="btn btn-primary btn-lg o_website_form_send o_default_snippet_text">Send Message</span>
+                                    <span id="o_website_form_result"/>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </t>
+          </t>
+        </field>
+      </record>
+
+      <!-- 
+      =============================
+      Home Page 4
+      ============================= -->
+      <record id="home_option_4_view" model="ir.ui.view">
+        <field name="name">Home Option 4 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.home_option_4</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t t-name="website.home_option_4">
+            <t t-call="website.layout">
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-animated-slider">
+                  <div id="myCarousel1541070617532" class="s_carousel s_carousel_default carousel slide">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel1541070617532" data-slide-to="0" class="active"/>
+                      <li data-target="#myCarousel1541070617532" data-slide-to="1"/>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" style="background-image: url(/laze_customize/static/src/img/bg1.jpg)" data-name="Slide">
+                        <div class="container">
+                          <blockquote class="carousel-content">
+                            <h2 class="animation animated-item-2 o_default_snippet_text"> Primary Health Care </h2>
+                            <h1 class="animation animated-item-1 o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, </h1>
+                            <a class="btn-slide animation animated-item-3 o_default_snippet_text" href="#">Read More</a>
+                          </blockquote>
+                        </div>
+                      </div>
+                      <div class="carousel-item" style="background-image: url(/laze_customize/static/src/img/bg2.jpg)" data-name="Slide">
+                        <div class="container">
+                          <blockquote class="carousel-content">
+                            <h2 class="animation animated-item-2 o_default_snippet_text"> Primary Health Care </h2>
+                            <h1 class="animation animated-item-1 o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, </h1>
+                            <a class="btn-slide animation animated-item-3 o_default_snippet_text" href="#">Read More</a>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-control-prev" data-target="#myCarousel1541070617532" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                      <span class="carousel-control-prev-icon"/>
+                      <span class="sr-only o_default_snippet_text">Previous</span>
+                    </div>
+                    <div class="carousel-control-next" data-target="#myCarousel1541070617532" data-slide="next" role="img" aria-label="Next" title="Next">
+                      <span class="carousel-control-next-icon"/>
+                      <span class="sr-only o_default_snippet_text">Next</span>
+                    </div>
+                  </div>
+                </section>
+                <section class="col-4-boxs bg-gray-dark bg-100 oe_custom_bg" style="">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="c4b-inner">
+                        <span class="iicon">
+                          <i class="color-theme fa fa-line-chart"/>
+                        </span>
+                        <h3 class="o_default_snippet_text">We are creative</h3>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="c4b-inner">
+                        <span class="iicon">
+                          <i class="color-theme fa fa-money"/>
+                        </span>
+                        <h3 class="o_default_snippet_text">Parallax effect</h3>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="c4b-inner">
+                        <span class="iicon">
+                          <i class="color-theme fa fa-bullseye"/>
+                        </span>
+                        <h3 class="o_default_snippet_text">We use Bootstrap</h3>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="c4b-inner">
+                        <span class="iicon">
+                          <i class="color-theme fa fa-bullseye"/>
+                        </span>
+                        <h3 class="o_default_snippet_text">Retina Ready</h3>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="clinic-about-us" style="background-image: url(/laze_customize/static/src/img/full-image-1.jpg)">
+                  <div class="row">
+                    <div class="col-lg-6 fli-desc bg-white pull-right">
+                      <section class="seaction-head-b">
+                        <h1 class="o_default_snippet_text">More about us</h1>
+                      </section>
+                      <div class="pb-desc">
+                        <h4 class="o_default_snippet_text">We Provide Most Proffesional Service Since 2000</h4>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet.</p>
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet.</p>
+                      </div>
+                      <div class="buts">
+                        <a class="creative-btn2 o_default_snippet_text" href="#">Read More</a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="speciality-boxs clinic-specialize bg-100 oe_custom_bg">
+                  <div class="container">
+                    <section class="seaction-head-a">
+                      <h1 class="o_default_snippet_text">We Specialize</h1>
+                      <p class="o_default_snippet_text">Lorem ipsum is a dummy text it will use for subtitle here</p>
+                    </section>
+                    <div class="row">
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="fa fa-user-md"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">We Specialize</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <div class="m-link">
+                            <a href="#" class="o_default_snippet_text">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="fa fa-plus-square"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">We Specialize</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <div class="m-link">
+                            <a href="#" class="o_default_snippet_text">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="fa fa-medkit"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">We Specialize</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <div class="m-link">
+                            <a href="#" class="o_default_snippet_text">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="fa fa-ambulance"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">We Specialize</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <div class="m-link">
+                            <a href="#" class="o_default_snippet_text">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="fa fa-hospital-o"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">We Specialize</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <div class="m-link">
+                            <a href="#" class="o_default_snippet_text">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 box-3">
+                        <div class="boxs-col">
+                          <span class="iicon">
+                            <i class="fa fa-stethoscope"/>
+                          </span>
+                          <h2 class="o_default_snippet_text">We Specialize</h2>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                          <div class="m-link">
+                            <a href="#" class="o_default_snippet_text">Read More</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="clinic-choose-us">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="flb-desc">
+                          <section class="seaction-head-b">
+                            <h1 class="o_default_snippet_text">Why Choose us?</h1>
+                          </section>
+                          <div class="flb-desc">
+                            <p class="o_default_snippet_text">Lorem Ipsum is simply du my text of the pritin industry. Lorm Ipsum hasbeen the industry's standardsdummy text eversince the 1500s, when an unknown printer took a galley of type and scramble it to make type specimen book. It has survived not only five centurie, but also the leap into</p>
+                            <p class="o_default_snippet_text">took a galley of type and scramble it to make type specimen book. It has survived not only five centurie, but also the leap into</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="flb-img-inner">
+                          <img src="/laze_customize/static/src/img/clinic_choose_us.jpg" title="" alt=""/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-clinic-offer">
+                  <div class="row">
+                    <section class="col-lg-6" style="background-image: url(/laze_customize/static/src/img/1.jpg)">
+                      <div class="desc-wrap">
+                        <h3 class="o_default_snippet_text">We Specialize In</h3>
+                        <p class="o_default_snippet_text">Lorem Ipsum is simply du my text of the pritin industry. Lorm Ipsum hasbeen the industry's standardsdummy text eversince the 1500s, when an unknown printer</p>
+                        <div class="buts">
+                          <a class="creative-btn2-border o_default_snippet_text" href="#">Read More</a>
+                        </div>
+                      </div>
+                    </section>
+                    <section class="col-lg-6" style="background-image: url(/laze_customize/static/src/img/2.jpg)">
+                      <div class="desc-wrap">
+                        <h3 class="o_default_snippet_text">Why Choose us?</h3>
+                        <p class="o_default_snippet_text">Lorem Ipsum is simply du my text of the pritin industry. Lorm Ipsum hasbeen the industry's standardsdummy text eversince the 1500s, when an unknown printer</p>
+                        <div class="buts">
+                          <a class="creative-btn2-border o_default_snippet_text" href="#">Read More</a>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="as-client-slider">
+                  <div class="container">
+                    <section class="seaction-head-a">
+                      <h1 class="o_default_snippet_text">Testimonial</h1>
+                    </section>
+                    <div id="myCarousel1541070710542" class="s_carousel s_carousel_default carousel slide">
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel1541070710542" data-slide-to="0" class="active"/>
+                        <li data-target="#myCarousel1541070710542" data-slide-to="1"/>
+                      </ol>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active" data-name="Slide">
+                          <blockquote class="lms-text">
+                            <div class="acs-img">
+                              <div class="acs-img-in">
+                                <img src="/laze_customize/static/src/img/acs-2.png" title="" alt=""/>
+                              </div>
+                              <i class="fa fa-quote-right"/>
+                            </div>
+                            <div class="asc-text">
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. </p>
+                              <div class="asc-author">
+                                <label class="o_default_snippet_text">John</label>
+                                <span class="o_default_snippet_text">CEO</span>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+                        <div class="carousel-item" data-name="Slide">
+                          <blockquote class="lms-text">
+                            <div class="acs-img">
+                              <div class="acs-img-in">
+                                <img src="/laze_customize/static/src/img/acs-2.png" title="" alt=""/>
+                              </div>
+                              <i class="fa fa-quote-right"/>
+                            </div>
+                            <div class="asc-text">
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. consectetur adipisicing elit, sed do eiusmod tempor incididunt. </p>
+                              <div class="asc-author">
+                                <label class="o_default_snippet_text">John</label>
+                                <span class="o_default_snippet_text">CEO</span>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="clinic-served">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <h2 class="o_default_snippet_text">We are served since 25 years to our customer with trust and we are happy</h2>
+                        <div class="buts">
+                          <a class="creative-btn2-border o_default_snippet_text" href="#">Read More</a>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-trophy"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-portfolio o_default_snippet_text">300</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Awards</p>
+                        </div>
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-users"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-portfolio o_default_snippet_text">155</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Doctors</p>
+                        </div>
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-wheelchair"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-portfolio o_default_snippet_text">2000</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Beds</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="teams-boxs clinic-teams-boxs">
+                  <div class="container">
+                    <section class="seaction-head-a">
+                      <h1 class="o_default_snippet_text">Our Team</h1>
+                      <p class="o_default_snippet_text">Our Talented Team</p>
+                    </section>
+                    <div class="row">
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team1.jpg" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">John Smith</h4>
+                          <label class="o_default_snippet_text">Heart Specialist</label>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, sea dolor essent nostrud no, pro no vidit aterum mediocritatem</p>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team2.jpg" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">Aimee</h4>
+                          <label class="o_default_snippet_text">Heart Specialist</label>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, sea dolor essent nostrud no, pro no vidit aterum mediocritatem</p>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team3.jpg" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">Alice</h4>
+                          <label class="o_default_snippet_text">Heart Specialist</label>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, sea dolor essent nostrud no, pro no vidit aterum mediocritatem</p>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 box-3">
+                        <div class="team-col">
+                          <div class="tc-img">
+                            <img src="/laze_customize/static/src/img/team4.jpg" title="" alt=""/>
+                          </div>
+                          <h4 class="o_default_snippet_text">Lee</h4>
+                          <label class="o_default_snippet_text">Heart Specialist</label>
+                          <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, sea dolor essent nostrud no, pro no vidit aterum mediocritatem</p>
+                          <ul>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-facebook"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-twitter"/>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="fa fa-google-plus"/>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-give-call bg-alpha oe_custom_bg">
+                  <h4 class="o_default_snippet_text">Give Us A Call</h4>
+                  <h2 class="o_default_snippet_text">+1 92-126-386</h2>
+                  <a class="creative-btn o_default_snippet_text" href="#">Get In Touch</a>
+                </section>
+              </div>
+            </t>
+          </t>
+        </field>
+      </record>
+
+      <!-- 
+      =============================
+      Home Page 5
+      ============================= -->
+      <record id="home_option_5_view" model="ir.ui.view">
+        <field name="name">Home Option 5 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.home_option_5</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t t-name="website.home_option_5">
+            <t t-call="website.layout">
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-home-banner" style="background-image: url(/laze_customize/static/src/img/home-banner.jpg)">
+                  <div class="hb-intro">
+                    <div class="hbi-inner">
+                      <h1 class="o_default_snippet_text">THIS IS LAZE</h1>
+                      <p class="o_default_snippet_text"> Unique, Multi-purpose, Responsive Odoo Theme</p>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-about home-style">
+                  <div class="hmsyl-inner">
+                    <section class="container bg-white">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <img src="/web/image/857" title="" alt="" data-original-title="" aria-describedby="tooltip499689"/>
+                        </div>
+                        <div class="col-lg-6 pt4">
+                          <h1 class="o_default_snippet_text">THIS IS LAZE</h1>
+                          <div class="ab-desc">
+                            <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                          </div>
+                          <div class="ab-link">
+                            <a href="#" class="o_default_snippet_text">More Info</a>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="progress-bar-theme home-style">
+                  <section class="seaction-head-1" style="background-image: url(/laze_customize/static/src/img/home-banner.jpg)">
+                    <h2 class="o_default_snippet_text">Our Skills</h2>
+                    <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </section>
+                  <div class="hmsyl-inner">
+                    <section class="container bg-white">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="pb-desc-inner">
+                            <div class="pb-desc">
+                              <h3 class="o_default_snippet_text">We Are Expert</h3>
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                              <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="pb-bar-inner">
+                            <section class="progress">
+                              <div class="progress-bar progress-bar-gray" role="progressbar" data-animate-width="80%">
+                                <span class="object-non-visible o_default_snippet_text" data-effect-delay="200">HTML5</span>
+                              </div>
+                            </section>
+                            <section class="progress">
+                              <div class="progress-bar progress-bar-gray" role="progressbar" data-animate-width="90%">
+                                <span class="object-non-visible o_default_snippet_text" data-effect-delay="200">CSS3</span>
+                              </div>
+                            </section>
+                            <section class="progress">
+                              <div class="progress-bar progress-bar-gray" role="progressbar" data-animate-width="75%">
+                                <span class="object-non-visible o_default_snippet_text" data-effect-delay="200">Odoo</span>
+                              </div>
+                            </section>
+                            <section class="progress">
+                              <div class="progress-bar progress-bar-gray" role="progressbar" data-animate-width="75%">
+                                <span class="object-non-visible o_default_snippet_text" data-effect-delay="200">jQuery</span>
+                              </div>
+                            </section>
+                            <section class="progress">
+                              <div class="progress-bar progress-bar-gray" role="progressbar" data-animate-width="75%">
+                                <span class="object-non-visible o_default_snippet_text" data-effect-delay="200">Magento</span>
+                              </div>
+                            </section>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="as-we-offer home-style">
+                  <section class="seaction-head-1" style="background-image: url(/laze_customize/static/src/img/What-We-Offer.jpg)">
+                    <h2 class="o_default_snippet_text">What We Offer</h2>
+                    <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </section>
+                  <div class="hmsyl-inner">
+                    <section class="container bg-white">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <div class="single-service">
+                            <div class="heading">
+                              <span class="icon">
+                                <i class="fa fa-html5"/>
+                              </span>
+                              <h5 class="title">
+                                <a href="#" class="o_default_snippet_text">Web Design</a>
+                              </h5>
+                            </div>
+                            <p class="o_default_snippet_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="single-service">
+                            <div class="heading">
+                              <span class="icon">
+                                <i class="fa fa-code"/>
+                              </span>
+                              <h5 class="title">
+                                <a href="#" class="o_default_snippet_text">Web Development</a>
+                              </h5>
+                            </div>
+                            <p class="o_default_snippet_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="single-service">
+                            <div class="heading">
+                              <span class="icon">
+                                <i class="fa fa-pencil-square-o"/>
+                              </span>
+                              <h5 class="title">
+                                <a href="#" class="o_default_snippet_text">Graphic Design</a>
+                              </h5>
+                            </div>
+                            <p class="o_default_snippet_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="single-service">
+                            <div class="heading">
+                              <span class="icon">
+                                <i class="fa fa-tablet"/>
+                              </span>
+                              <h5 class="title">
+                                <a href="#" class="o_default_snippet_text">App Development</a>
+                              </h5>
+                            </div>
+                            <p class="o_default_snippet_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="single-service">
+                            <div class="heading">
+                              <span class="icon">
+                                <i class="fa fa-briefcase"/>
+                              </span>
+                              <h5 class="title">
+                                <a href="#" class="o_default_snippet_text">Commercial Fitouts</a>
+                              </h5>
+                            </div>
+                            <p class="o_default_snippet_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="single-service">
+                            <div class="heading">
+                              <span class="icon">
+                                <i class="fa fa-check-square"/>
+                              </span>
+                              <h5 class="title">
+                                <a href="#" class="o_default_snippet_text">RECIDENTAL REPAINTS</a>
+                              </h5>
+                            </div>
+                            <p class="o_default_snippet_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,</p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="as-choose-us home-style">
+                  <section class="seaction-head-1" style="background-image: url(/laze_customize/static/src/img/Why-Choose-Us.jpg)">
+                    <h2 class="o_default_snippet_text">Why Choose Us</h2>
+                    <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </section>
+                  <div class="hmsyl-inner feature-left-box">
+                    <section class="container bg-white">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="flb-img-inner">
+                            <img src="/laze_customize/static/src/img/mac-2.png" title="" alt=""/>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="flb-desc">
+                            <h1 class="o_default_snippet_text">Our Elegant Design</h1>
+                            <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <ul>
+                              <li class="o_default_snippet_text"><i class="fa fa-check"/> Page Layout Options with Boxed and Full Width</li>
+                              <li class="o_default_snippet_text"><i class="fa fa-check"/> 3 Header options</li>
+                              <li class="o_default_snippet_text"><i class="fa fa-check"/> 2 Footer color options</li>
+                              <li class="o_default_snippet_text"><i class="fa fa-check"/> 3 Footer Style</li>
+                              <li class="o_default_snippet_text"><i class="fa fa-check"/> Shop category left right option</li>
+                              <li class="o_default_snippet_text"><i class="fa fa-check"/> 3 Product styles</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="as-packages home-style">
+                  <section class="seaction-head-1" style="background-image: url(/laze_customize/static/src/img/Our-Packages.jpg)">
+                    <h2 class="o_default_snippet_text">Our Packages</h2>
+                    <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </section>
+                  <div class="hmsyl-inner">
+                    <section class="container bg-white">
+                      <div class="row">
+                        <div class="col-lg-3 pt-basic">
+                          <div class="pt-inner">
+                            <div class="pt-title o_default_snippet_text">BASIC</div>
+                            <div class="pt-price">
+                              <span class="o_default_snippet_text">$</span>
+                              <label class="o_default_snippet_text">35</label>
+                              <small class="o_default_snippet_text">.99</small>
+                            </div>
+                            <h6 class="o_default_snippet_text">Billed Per Month</h6>
+                            <ul>
+                              <li class="o_default_snippet_text">Full Statistics</li>
+                              <li class="o_default_snippet_text">Mobile-Optimized</li>
+                              <li class="o_default_snippet_text">No Transacation Fees</li>
+                              <li class="o_default_snippet_text">Max 200 items</li>
+                              <li class="o_default_snippet_text">27/7 Supports</li>
+                            </ul>
+                            <div class="pt-action">
+                              <a href="#" class="o_default_snippet_text">Get Started</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="pt-inner">
+                            <div class="pt-title o_default_snippet_text">Pupular</div>
+                            <div class="pt-price">
+                              <span class="o_default_snippet_text">$</span>
+                              <label class="o_default_snippet_text">65</label>
+                              <small class="o_default_snippet_text">.99</small>
+                            </div>
+                            <h6 class="o_default_snippet_text">Billed Per Month</h6>
+                            <ul>
+                              <li class="o_default_snippet_text">Full Statistics</li>
+                              <li class="o_default_snippet_text">Mobile-Optimized</li>
+                              <li class="o_default_snippet_text">No Transacation Fees</li>
+                              <li class="o_default_snippet_text">Max 200 items</li>
+                              <li class="o_default_snippet_text">27/7 Supports</li>
+                            </ul>
+                            <div class="pt-action">
+                              <a href="#" class="o_default_snippet_text">Get Started</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="pt-inner">
+                            <div class="pt-title o_default_snippet_text">Premium</div>
+                            <div class="pt-price">
+                              <span class="o_default_snippet_text">$</span>
+                              <label class="o_default_snippet_text">85</label>
+                              <small class="o_default_snippet_text">.99</small>
+                            </div>
+                            <h6 class="o_default_snippet_text">Billed Per Month</h6>
+                            <ul>
+                              <li class="o_default_snippet_text">Full Statistics</li>
+                              <li class="o_default_snippet_text">Mobile-Optimized</li>
+                              <li class="o_default_snippet_text">No Transacation Fees</li>
+                              <li class="o_default_snippet_text">Max 200 items</li>
+                              <li class="o_default_snippet_text">27/7 Supports</li>
+                            </ul>
+                            <div class="pt-action">
+                              <a href="#" class="o_default_snippet_text">Get Started</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3">
+                          <div class="pt-inner">
+                            <div class="pt-title o_default_snippet_text">Ultimate</div>
+                            <div class="pt-price">
+                              <span class="o_default_snippet_text">$</span>
+                              <label class="o_default_snippet_text">99</label>
+                              <small class="o_default_snippet_text">.99</small>
+                            </div>
+                            <h6 class="o_default_snippet_text">Billed Per Month</h6>
+                            <ul>
+                              <li class="o_default_snippet_text">Full Statistics</li>
+                              <li class="o_default_snippet_text">Mobile-Optimized</li>
+                              <li class="o_default_snippet_text">No Transacation Fees</li>
+                              <li class="o_default_snippet_text">Max 200 items</li>
+                              <li class="o_default_snippet_text">27/7 Supports</li>
+                            </ul>
+                            <div class="pt-action">
+                              <a href="#" class="o_default_snippet_text">Get Started</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="as-stats-section bg-100 oe_custom_bg">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-picture-o"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-portfolio o_default_snippet_text">500</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Portfolio Layouts </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-pencil"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-blog-template o_default_snippet_text">1000</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Blog Templates</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-puzzle-piece"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-shortcut o_default_snippet_text">500</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Shortcodes</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="stats-box">
+                          <label class="stats-icon">
+                            <i class="fa fa-file-text-o"/>
+                          </label>
+                          <span class="counter-s o_default_snippet_text"><span class="counter counter-like o_default_snippet_text">2000</span>+</span>
+                          <p class="stats-label o_default_snippet_text">Likes</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-give-call bg-alpha oe_custom_bg">
+                  <h4 class="o_default_snippet_text">Give Us A Call</h4>
+                  <h2 class="o_default_snippet_text">+1 92-126-386</h2>
+                  <a class="creative-btn o_default_snippet_text" href="#">Get In Touch</a>
+                </section>
+              </div>
+            </t>
+          </t>
+
+        </field>
+      </record>
+
+
+      <!-- 
+      =============================
+      Home Page 6
+      ============================= -->
+      <record id="home_option_6_view" model="ir.ui.view">
+        <field name="name">Home Option 6 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.home_option_6</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t t-name="website.home_option_6">
+            <t t-call="website.layout">
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-home-slider-cr">
+                  <div id="myCarousel1541072251977" class="s_carousel s_carousel_default carousel slide">
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel1541072251977" data-slide-to="0" class="active"/>
+                      <li data-target="#myCarousel1541072251977" data-slide-to="1"/>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" style="background-image: url(&quot;/laze_customize/static/src/img/banner-1.jpg&quot;);" data-name="Slide">
+                        <div class="container">
+                          <blockquote class="lms-text">
+                            <h2 class="o_default_snippet_text">Video Production</h2>
+                            <div class="clearfix"/>
+                            <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                            <div class="clearfix"/>
+                            <div class="btn-box">
+                              <a class="creative-btn o_default_snippet_text" href="#">Learn More</a>
+                            </div>
+                          </blockquote>
+                        </div>
+                      </div>
+                      <div class="carousel-item" style="background-image: url(&quot;/laze_customize/static/src/img/banner-3.jpg&quot;);" data-name="Slide">
+                        <div class="container">
+                          <blockquote class="lms-text">
+                            <h2 class="o_default_snippet_text">Video Production</h2>
+                            <div class="clearfix"/>
+                            <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                            <div class="clearfix"/>
+                            <div class="btn-box">
+                              <a class="creative-btn o_default_snippet_text" href="#">Learn More</a>
+                            </div>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-control-prev" data-target="#myCarousel1541072251977" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                      <span class="carousel-control-prev-icon"/>
+                      <span class="sr-only o_default_snippet_text">Previous</span>
+                    </div>
+                    <div class="carousel-control-next" data-target="#myCarousel1541072251977" data-slide="next" role="img" aria-label="Next" title="Next">
+                      <span class="carousel-control-next-icon"/>
+                      <span class="sr-only o_default_snippet_text">Next</span>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-creative-aboutus" style="background-image: url(/laze_customize/static/src/img/about-img.jpg)">
+                  <div class="row">
+                    <div class="col-lg-6 fli-desc bg-white">
+                      <section class="seaction-head-c">
+                        <h1 class="o_default_snippet_text">About Us</h1>
+                        <p class="o_default_snippet_text">Who We Are?</p>
+                      </section>
+                      <div class="pb-desc">
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                      </div>
+                      <div class="buts">
+                        <a class="creative-btn o_default_snippet_text" href="#">Learn More</a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-process-content" style="background-image: url(/laze_customize/static/src/img/process-img.jpg)">
+                  <div class="row">
+                    <div class="col-md-6 pull-right fli-desc bg-white col-lg-6 offset-lg-6">
+                      <section class="seaction-head-c">
+                        <h1 class="o_default_snippet_text">Process</h1>
+                        <p class="o_default_snippet_text">How we Do?</p>
+                      </section>
+                      <div class="pb-desc">
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        <ul>
+                          <li class="o_default_snippet_text">Research</li>
+                          <li class="o_default_snippet_text">Design</li>
+                          <li class="o_default_snippet_text">Devlopment</li>
+                          <li class="o_default_snippet_text">Testing</li>
+                        </ul>
+                      </div>
+                      <div class="buts">
+                        <a class="creative-btn o_default_snippet_text" href="#">Start Project </a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-portfolio-creative">
+                  <div class="row no-padding">
+                    <section class="col-lg-6 fli-desc bg-white no-padding">
+                      <section class="seaction-head-c">
+                        <h1 class="o_default_snippet_text">Portfolio</h1>
+                        <p class="o_default_snippet_text">What We Did?</p>
+                      </section>
+                      <div class="pb-desc">
+                        <p class="o_default_snippet_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      </div>
+                      <div class="buts">
+                        <a class="creative-btn o_default_snippet_text" href="#">View All</a>
+                      </div>
+                    </section>
+                    <section class="col-lg-6">
+                      <div class="row">
+                        <div class="col-lg-4 pc-col">
+                          <img src="/laze_customize/static/src/img/portfolio-img-5.jpg" title="" alt="" data-original-title="" aria-describedby="tooltip946049"/>
+                          <div class="figcaption">
+                            <h4 class="o_default_snippet_text">Design and Marketing</h4>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 pc-col">
+                          <img src="/laze_customize/static/src/img/portfolio-img-1.jpg" title="" alt=""/>
+                          <div class="figcaption">
+                            <h4 class="o_default_snippet_text">Design and Marketing</h4>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 pc-col">
+                          <img src="/laze_customize/static/src/img/portfolio-img-2.jpg" title="" alt=""/>
+                          <div class="figcaption">
+                            <h4 class="o_default_snippet_text">Design and Marketing</h4>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 pc-col">
+                          <img src="/laze_customize/static/src/img/portfolio-img-3.jpg" title="" alt=""/>
+                          <div class="figcaption">
+                            <h4 class="o_default_snippet_text">Design and Marketing</h4>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 pc-col">
+                          <img src="/laze_customize/static/src/img/portfolio-img-6.jpg" title="" alt=""/>
+                          <figcaption>
+                            <h4 class="o_default_snippet_text">Design and Marketing</h4>
+                          </figcaption>
+                        </div>
+                        <div class="col-lg-4 pc-col">
+                          <img src="/laze_customize/static/src/img/portfolio-img-4.jpg" title="" alt=""/>
+                          <div class="figcaption">
+                            <h4 class="o_default_snippet_text">Design and Marketing</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </section>
+                <section class="as-creative-presentation">
+                  <div class="row no-gutters">
+                    <div class="col-lg-3">
+                      <img src="/laze_customize/static/src/img/service-img-1.jpg" title="" alt=""/>
+                      <div class="figcaption">
+                        <h2 class="o_default_snippet_text">Design and Marketing</h2>
+                        <p class="o_default_snippet_text">Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <h4 class="o_default_snippet_text"><b class="o_default_snippet_text">125</b>Projects Completed</h4>
+                        <a class="creative-btn o_default_snippet_text" href="#">View Details</a>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <img src="/laze_customize/static/src/img/service-img-2.jpg" title="" alt=""/>
+                      <div class="figcaption">
+                        <h2 class="o_default_snippet_text">Design and Marketing</h2>
+                        <p class="o_default_snippet_text">Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <h4 class="o_default_snippet_text"><b class="o_default_snippet_text">125</b>Projects Completed</h4>
+                        <a class="creative-btn o_default_snippet_text" href="#">View Details</a>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <img src="/laze_customize/static/src/img/service-img-3.jpg" title="" alt=""/>
+                      <div class="figcaption">
+                        <h2 class="o_default_snippet_text">Design and Marketing</h2>
+                        <p class="o_default_snippet_text">Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <h4 class="o_default_snippet_text"><b class="o_default_snippet_text">125</b>Projects Completed</h4>
+                        <a class="creative-btn o_default_snippet_text" href="#">View Details</a>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <img src="/laze_customize/static/src/img/service-img-4.jpg" title="" alt=""/>
+                      <div class="figcaption">
+                        <h2 class="o_default_snippet_text">Design and Marketing</h2>
+                        <p class="o_default_snippet_text">Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <h4 class="o_default_snippet_text"><b class="o_default_snippet_text">125</b>Projects Completed</h4>
+                        <a class="creative-btn o_default_snippet_text" href="#">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section class="as-give-call bg-alpha">
+                  <h4 class="o_default_snippet_text">Give Us A Call</h4>
+                  <h2 class="o_default_snippet_text">+1 92-126-386</h2>
+                  <a class="creative-btn o_default_snippet_text" href="#">Get In Touch</a>
+                </section>
+              </div>
+            </t>
+          </t>
+        </field>
+      </record>
+
+      <!-- 
+      =============================
+      Home Page 7
+      ============================= -->
+      <record id="home_option_7_view" model="ir.ui.view">
+        <field name="name">Home Option 7 Page</field>
+        <field name="type">qweb</field>
+        <field name="key">website.home_option_7</field>
+        <field name="mode">primary</field>
+        <field name="active">True</field>
+        
+        <field name="arch" type="xml">
+          <t t-name="website.home_option_7">
+            <t t-call="website.layout">
+              <div id="wrap" class="oe_structure oe_empty">
+                <section class="as-home-slider01">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-8 col-md-8">
+                        <div id="myCarousel1541072732507" class="s_carousel s_carousel_default carousel slide">
+                          <ol class="carousel-indicators">
+                            <li data-target="#myCarousel1541072732507" data-slide-to="0"/>
+                            <li data-target="#myCarousel1541072732507" data-slide-to="1" class="active"/>
+                          </ol>
+                          <div class="carousel-inner">
+                            <div class="carousel-item" data-name="Slide" style="">
+                              <img src="/laze_customize/static/src/img/home2-2.jpg" alt=""/>
+                            </div>
+                            <div class="carousel-item active" data-name="Slide" style="">
+                              <img src="/laze_customize/static/src/img/home2-2.jpg" alt="" data-original-title="" title="" aria-describedby="tooltip720709"/>
+                            </div>
+                          </div>
+                          <div class="carousel-control-prev" data-target="#myCarousel1541072732507" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                            <span class="carousel-control-prev-icon"/>
+                            <span class="sr-only o_default_snippet_text">Previous</span>
+                          </div>
+                          <div class="carousel-control-next" data-target="#myCarousel1541072732507" data-slide="next" role="img" aria-label="Next" title="Next">
+                            <span class="carousel-control-next-icon"/>
+                            <span class="sr-only o_default_snippet_text">Next</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4">
+                        <div class="as-hs-banner1">
+                          <img src="/laze_customize/static/src/img/home2-r2.jpg" alt="" data-original-title="" title="" aria-describedby="tooltip780640"/>
+                        </div>
+                        <div class="as-hs-banner2">
+                          <img src="/laze_customize/static/src/img/home2-r2.jpg" alt="" data-original-title="" title="" aria-describedby="tooltip890191"/>
+                        </div>
+                        <div class="as-hs-banner3">
+                          <img src="/laze_customize/static/src/img/home2-r2.jpg" alt="" data-original-title="" title="" aria-describedby="tooltip805949"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Dynamic Snippets -->
+                <section class="s_product_slider o_default_snippet_text" data-snippet_type="single" data-collection_id="2" data-collection_name="Specials" data-snippet_layout="slider">
+                  <div class="container">
+                    <div class="seaction-head">
+                      <h2>Specials</h2>
+                    </div>
+                  </div>
+                </section>
+                <!--  -->
+
+                <section class="as-bannertwo">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="image-wrap">
+                          <a href="#">
+                            <img src="/laze_customize/static/src/img/banner9.jpg" alt="Banner Image"/>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="image-wrap">
+                          <a href="#">
+                            <img src="/laze_customize/static/src/img/banner10.jpg" alt="Banner Image"/>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Dynamic Snippets -->
+                <section class="s_product_slider o_default_snippet_text" data-snippet_type="multi" data-collection_id="1" data-collection_name="New Arrivals" data-snippet_layout="horiz_tab">
+                  <div class="container">
+                    <div class="seaction-head">
+                      <h2>New Arrivals</h2>
+                    </div>
+                  </div>
+                </section>
+                <!-- / -->
+
+                <section class="as-bannertwo">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="image-wrap">
+                          <a href="#">
+                            <img src="/laze_customize/static/src/img/banner9.jpg" alt="Banner Image" data-original-title="" title="" aria-describedby="tooltip98996"/>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="image-wrap">
+                          <a href="#">
+                            <img src="/laze_customize/static/src/img/banner9.jpg" alt="Banner Image" data-original-title="" title="" aria-describedby="tooltip399597"/>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Dynamic Snippets -->
+                <section class="as-latest-blog web_blog_slider" data-blog-id="0" data-blog_list-id="1">
+                  <div class="seaction-head">
+                    <h1>Blog Slider</h1>
+                  </div>
+                </section>
+                <!-- / -->
+
+                <section class="as-policy-box">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-plane"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Free shiping</h6>
+                            <span class="o_default_snippet_text">On order over $100</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-headphones"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Support online</h6>
+                            <span class="o_default_snippet_text">Call us: 000 000 000</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-tag"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Discount</h6>
+                            <span class="o_default_snippet_text">5% on order over $190</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="pb-inner">
+                          <i class="fa fa-refresh"/>
+                          <div class="text">
+                            <h6 class="o_default_snippet_text">Money back</h6>
+                            <span class="o_default_snippet_text">Guarantee</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </t>
+          </t>
+        </field>
+      </record>
+    <!-- Demo Page Views: End -->
+
+    <!-- Demo Website Pages: Start -->
+      <record id="home_option_1_demo_page" model="website.page">
+        <field name="name">Home Option 1</field>
+        <field name="url">/home-option-1</field>
+        <field name="view_id" ref="laze_customize.home_option_1_page_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+
+      <record id="home_option_2_demo_page" model="website.page">
+        <field name="name">Home Option 2</field>
+        <field name="url">/home-option-2</field>
+        <field name="view_id" ref="laze_customize.home_option_2_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+
+      <record id="home_option_3_demo_page" model="website.page">
+        <field name="name">Home Option 3</field>
+        <field name="url">/home-option-3</field>
+        <field name="view_id" ref="laze_customize.home_option_3_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+
+      <record id="home_option_4_demo_page" model="website.page">
+        <field name="name">Home Option 4</field>
+        <field name="url">/home-option-4</field>
+        <field name="view_id" ref="laze_customize.home_option_4_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+
+      <record id="home_option_5_demo_page" model="website.page">
+        <field name="name">Home Option 5</field>
+        <field name="url">/home-option-5</field>
+        <field name="view_id" ref="laze_customize.home_option_5_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+
+      <record id="home_option_6_demo_page" model="website.page">
+        <field name="name">Home Option 6</field>
+        <field name="url">/home-option-6</field>
+        <field name="view_id" ref="laze_customize.home_option_6_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+
+      <record id="home_option_7_demo_page" model="website.page">
+        <field name="name">Home Option 7</field>
+        <field name="url">/home-option-7</field>
+        <field name="view_id" ref="laze_customize.home_option_7_view"/>
+        <field name="website_indexed">True</field>
+        <field name="website_published">True</field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+    <!-- Demo Website Menus: End -->
+
+      <record id="menu_mega_content_1" model="megamenu.content">
+        <field name="name">content 1</field>
+        <field name="active">True</field>
+        <field name="is_mega_menu">True</field>
+        <field name="main_content_type">content</field>
+        <field name="no_of_columns">4</field>
+        <field name="menu_content"><![CDATA[
+								<div class="mmc-inner">
+								<ul class="mm-alone-item">
+								  <li class="item">
+									<a href="/home-option-1">Home Option 1</a>
+								  </li>
+								  <li class="item">
+									<a href="/home-option-2">Home Option 2</a>
+								  </li>
+								  <li class="item">
+									<a href="/home-option-3">Home Option 3</a>
+								  </li>
+								  <li class="item">
+									<a href="/home-option-4">Home Option 4</a>
+								  </li>
+								  <li class="item">
+									<a href="/home-option-5">Home Option 5</a>
+								  </li>
+								  <li class="item">
+									<a href="/home-option-6">Home Option 6</a>
+								  </li>
+								  <li class="item">
+									<a href="/home-option-7">Home Option 7</a>
+								  </li>
+								  </ul>
+								</div>
+        ]]></field>
+        <field name="website_id" ref="website.default_website"/>
+      </record>
+      	      
+      <record id="megamenu_category_listing_2" model="megamenu.content">
+        <field name="name">Categories List</field>
+        <field name="active" eval="True"/>
+        <field name="main_content_type">category_list</field>
+        <field name="no_of_columns">4</field>
+        <field name="category_ids" eval="[(6, 0, [ref('laze_product_category_1'), ref('laze_product_category_5'), ref('laze_product_category_6'), ref('laze_product_category_7'), ref('laze_product_category_8'), ref('laze_product_category_2'), ref('laze_product_category_9'), ref('laze_product_category_10'), ref('laze_product_category_11'), ref('laze_product_category_12'), ref('laze_product_category_3'), ref('laze_product_category_13'), ref('laze_product_category_14'), ref('laze_product_category_15'), ref('laze_product_category_16'), ref('laze_product_category_4'), ref('laze_product_category_17'), ref('laze_product_category_18'), ref('laze_product_category_19'), ref('laze_product_category_20')])]"/>
+      </record>
+      
+    <!-- Demo Website Menus: Start -->
+      <record id="menu_product" model="website.menu">
+        <field name="name">Products</field>
+        <field name="url">#</field>
+        <field name="sequence" type="int">21</field>
+        <field name="is_mega_menu" eval="True"/>
+        <field name="content_id" ref="megamenu_product_listing_1"/>
+
+      </record>
+
+	  <record id="mega_menu_content_2" model="megamenu.content">
+	  	<field name="name"> Category Toggle </field>
+	  	<field name="active">True</field>
+	  	<field name="main_content_type">horiz_categ_toggle</field>
+	  	<field name="no_of_columns">4</field>
+	  </record>
+	  
+      <record id="menu_category" model="website.menu">
+        <field name="name">Categories</field>
+        <field name="url">#</field>
+        <field name="sequence" type="int">22</field>
+        <field name="is_mega_menu" eval="True"/>
+        <field name="content_id" ref="megamenu_category_listing_2"/>
+
+      </record>            
+      <record id="menu_demo_pages" model="website.menu">
+        <field name="name">Demo Pages</field>
+        <field name="url">#</field>
+        <field name="sequence" type="int">23</field>
+        <field name="is_mega_menu">True</field>
+        <field name="content_id" ref="laze_customize.menu_mega_content_1"/>
+      </record>
+      	      
+
+	  
+	  <!-- level 1 menu content -->
+      <record id="categories_menu_lines_1" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_1'/>
+        <field name="level">1</field>
+        <field name="image"  type="base64" file="laze_customize/static/src/img/car.png"/>
+        <field name="image_name">car.png</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_2" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_2'/>
+        <field name="level">1</field>
+        <field name="image"  type="base64" file="laze_customize/static/src/img/armchair.png"/>
+        <field name="image_name">armchair.png</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_3" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_3'/>
+        <field name="level">1</field>
+        <field name="image"  type="base64" file="laze_customize/static/src/img/null.png"/>
+        <field name="image_name">fashion.png</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_4" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_4'/>
+        <field name="level">1</field>
+        <field name="image"  type="base64" file="laze_customize/static/src/img/watch.png"/>
+        <field name="image_name">watch.png</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      
+      <!-- leve 1 completed -->
+      
+      <!-- level 2 started -->
+      <record id="categories_menu_lines_5" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_5'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_6" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_6'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_7" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_7'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_8" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_8'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_9" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_9'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_10" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_10'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_11" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_11'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_12" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_12'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_13" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_13'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_14" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_14'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_15" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_15'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_16" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_16'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_17" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_17'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_18" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_18'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+
+      <record id="categories_menu_lines_19" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_19'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_20" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_20'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+            
+      <!-- level 2 completed -->   
+      
+      <!-- level 3 started -->   
+
+      <record id="categories_menu_lines_21" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_21'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_22" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_22'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_23" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_23'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_24" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_24'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_25" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_25'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_26" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_26'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_27" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_27'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+      <record id="categories_menu_lines_28" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_28'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_28" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_28'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_29" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_29'/>
+        <field name="level">3</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record>
+      <record id="categories_menu_lines_30" model="megamenu.categories_menu_lines">
+        <field name="name" ref='laze_customize.laze_product_category_30'/>
+        <field name="level">2</field>
+        <field name="megamenu_id" ref="laze_customize.mega_menu_content_2"/>
+      </record> 
+
+      <record id="menu_mix_content" model="megamenu.content">
+        <field name="name">Mixed</field>
+        <field name="active">True</field>
+        <field name="main_content_type">mixed_list</field>
+        <field name="no_of_columns">4</field>
+        <field name="background_image" type="base64" file="laze_customize/static/src/img/bg_mega_menu.png"/>
+        <field name="background_image_pos">right</field>
+        <field name="content_id" ref="mega_menu_content_2"/>
+      </record>
+
+      <record id="menu_mix_content_1" model="megamenu.links">
+        <field name="link_type">product.public.category</field>
+        <field name="link_category" ref='laze_customize.laze_product_category_30'/>
+        <field name="pos_column">1</field>
+        <field name="pos_row">1</field>
+        <field name="megamenu_id" ref="laze_customize.menu_mix_content"/>
+      </record>	 
+	       
+      <record id="menu_category_with_list" model="website.menu">
+        <field name="name">Shop Category</field>
+        <field name="url">#</field>
+        <field name="sequence" type="int">22</field>
+        <field name="is_mega_menu" eval="True"/>
+        <field name="content_id" ref="mega_menu_content_2"/>
+
+      </record>            
+
+      <record id="menu_category_with_list" model="website.menu">
+        <field name="name">Offers</field>
+        <field name="url">#</field>
+        <field name="sequence" type="int">22</field>
+        <field name="is_mega_menu" eval="True"/>
+        <field name="content_id" ref="menu_mix_content"/>
+
+      </record>
+  </data>
+</odoo>

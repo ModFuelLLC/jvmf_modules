@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!--Extended the functionality of the edit project view form to add the field use task template  -->
+     <record id="project_stage_assigened_user" model="ir.ui.view">
+        <field name="name">project.stage.assigned.user</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+	         <xpath expr="//notebook" position="inside">
+                <page string="Stage Assigened User" groups="jvmf_abs_task_user_assignment.group_stage_assign_user_show">
+                    <br/>
+                    <field name="stage_project_ids">
+                        <tree string="Stage Assigened User" editable="bottom">
+                          <field name="stage_id"/>
+                    	    <field name="user_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!-- Added functionality to make the project_ids and sequence visible to those with the permissions to assign users to stages.
+            THis is an edited functionality for Mod Fuel LLC.-->
+    <record id="task_type_edit_extended_permission" model="ir.ui.view">
+      <field name="name">project.task.type.form.extended.permission</field>
+      <field name="model">project.task.type</field>
+      <field name="inherit_id" ref="project.task_type_edit" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='project_ids']" position="attributes">
+            <attribute name="groups">base.group_no_one,base.group_user</attribute>
+        </xpath>
+        <xpath expr="//field[@name='sequence']" position="attributes">
+            <attribute name="groups">base.group_no_one,base.group_user</attribute>
+        </xpath>
+
+      </field>
+    </record>
+  </data>
+</odoo>

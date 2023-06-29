@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="jvmf_helpdesk_ticket_view_form" model="ir.ui.view">
+    <field name="name">jvmf.helpdesk.ticket.form</field>
+    <field name="model">helpdesk.ticket</field>
+    <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='deadline']" position="after">
+        <field name="view_vendor_form" invisible="1"/>
+        <field name="view_vendor_ref_form" invisible="1"/>
+        <field name="view_purchase_order_form" invisible="1"/>
+        <field name="view_sale_order_form" invisible="1"/>
+        <field name="view_location_form" invisible="1"/>
+        <field name="view_department_form" invisible="1"/>
+        <field name="vendor_id" attrs="{'invisible': [('view_vendor_form','=',False)]}"/>
+        <field name="vendor_ref" attrs="{'invisible': [('view_vendor_ref_form','=',False)]}"/>
+        <field name="purchase_order" attrs="{'invisible': [('view_purchase_order_form','=',False)]}"/>
+        <field name="sale_order" attrs="{'invisible': [('view_sale_order_form','=',False)]}"/>
+        <field name="location" attrs="{'invisible': [('view_location_form','=',False)]}"/>
+        <field name="department" attrs="{'invisible': [('view_department_form','=',False)]}"/>
+      </xpath>
+      <xpath expr="//field[@name='partner_name']" position="attributes">
+        <attribute name="attrs"></attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="jvmf_helpdesk_ticket_view_kanban" model="ir.ui.view">
+    <field name="name">jvmf.helpdesk.ticket.kanban</field>
+    <field name="model">helpdesk.ticket</field>
+    <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_kanban"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('oe_kanban_bottom_left')]" position="inside">
+        <field name="view_vendor_kanban" invisible="1"/>
+        <field name="view_vendor_ref_kanban" invisible="1"/>
+        <field name="view_purchase_order_kanban" invisible="1"/>
+        <field name="view_sale_order_kanban" invisible="1"/>
+        <field name="view_location_kanban" invisible="1"/>
+        <field name="view_department_kanban" invisible="1"/>
+        <div attrs="{'invisible': ['|', ('vendor_id', '=', False), ('view_vendor_kanban', '=', False)]}"><strong>Vendor: </strong><field name="vendor_id"/></div>
+        <div attrs="{'invisible': ['|', ('vendor_ref', '=', False), ('view_vendor_ref_kanban', '=', False)]}"><strong>Vendor Reference: </strong>  <field name="vendor_ref"/></div>
+        <div attrs="{'invisible': ['|', ('purchase_order', '=', False), ('view_purchase_order_kanban', '=', False)]}"><strong>Purchase Order: </strong><field name="purchase_order"/></div>
+        <div attrs="{'invisible': ['|', ('sale_order', '=', False), ('view_sale_order_kanban', '=', False)]}"><strong>Sale Order: </strong>  <field name="sale_order"/></div>
+        <div attrs="{'invisible': ['|', ('location', '=', False), ('view_location_kanban', '=', False)]}"><strong>Location: </strong>  <field name="location"/></div>
+        <div attrs="{'invisible': ['|', ('department', '=', False), ('view_department_kanban', '=', False)]}"><strong>Department: </strong>  <field name="department"/></div>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="jvmf_helpdesk_ticket_view_tree" model="ir.ui.view">
+    <field name="name">jvmf.helpdesk.ticket.tree</field>
+    <field name="model">helpdesk.ticket</field>
+    <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='stage_id']" position="after">
+        <field name="create_date"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="jvmf_helpdesk_team_view_form" model="ir.ui.view">
+    <field name="name">jvmf.helpdesk.team.form</field>
+    <field name="model">helpdesk.team</field>
+    <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[@id='self-Service']" position="after">
+        <h2>Custom Fields</h2>
+        <div class="row mt16 o_settings_container" id="custom_fields">
+          <!-- Vendor Field -->
+          <div class="col-lg-6 o_setting_box">
+            <!-- Turn Field On -->
+            <div class="o_setting_left_pane">
+              <field name="view_vendor_form"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_vendor_form" string="Vendor"/>
+              <div class="text-muted">
+                Select Vendor from contacts.
+              </div>
+            </div>
+            <!-- Make Visible in Kanban View-->
+            <div class="o_setting_left_pane">
+              <field name="view_vendor_kanban"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_vendor_kanban" string="Visible in Kanban"/>
+              <div class="text-muted">
+                Vendor field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+          <!-- Vendor Reference field -->
+          <div class="col-lg-6 o_setting_box">
+            <!-- Turn Field On -->
+            <div class="o_setting_left_pane">
+              <field name="view_vendor_ref_form"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_vendor_ref_form" string="Vendor Reference"/>
+              <div class="text-muted">
+                The Vendor Reference (PO#, RMA#, etc.) is a useable field.
+              </div>
+            </div>
+            <!-- Make Visible in Kanban View-->
+            <div class="o_setting_left_pane">
+              <field name="view_vendor_ref_kanban"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_vendor_ref_kanban" string="Visible in Kanban"/>
+              <div class="text-muted">
+                Vendor Reference field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+          <!-- Purchase Order field -->
+          <div class="col-lg-6 o_setting_box">
+            <!-- Turn Field On -->
+            <div class="o_setting_left_pane">
+              <field name="view_purchase_order_form"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_purchase_order_form" string="Purchase Order"/>
+              <div class="text-muted">
+                Select Purchase Order.
+              </div>
+            </div>
+            <!-- Make Visible in Kanban View-->
+            <div class="o_setting_left_pane">
+              <field name="view_purchase_order_kanban"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_purchase_order_kanban" string="Visible in Kanban"/>
+              <div class="text-muted">
+                Purchase Order field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+          <!-- Sale Order field -->
+          <div class="col-lg-6 o_setting_box">
+            <!-- Turn Field On -->
+            <div class="o_setting_left_pane">
+              <field name="view_sale_order_form"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_sale_order_form" string="Sale Order"/>
+              <div class="text-muted">
+                Select Sale Order.
+              </div>
+            </div>
+            <!-- Make Visible in Kanban View -->
+            <div class="o_setting_left_pane">
+              <field name="view_sale_order_kanban"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_sale_order_kanban" string="Visible in Kanban"/>
+              <div class="text-muted">
+                Sale Order field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+          <!-- Location -->
+          <div class="col-lg-6 o_setting_box">
+            <!-- Turn Field On -->
+            <div class="o_setting_left_pane">
+              <field name="view_location_form"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_location_form" string="Location"/>
+              <div class="text-muted">
+                Select service location based on company employment locations
+              </div>
+            </div>
+            <!-- Make Visible in Kanban View-->
+            <div class="o_setting_left_pane">
+              <field name="view_location_kanban"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_location_kanban" string="Visible in Kanban"/>
+              <div class="text-muted">
+                field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+          <!-- Department -->
+          <div class="col-lg-6 o_setting_box">
+            <!-- Turn Field On -->
+            <div class="o_setting_left_pane">
+              <field name="view_department_form"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_department_form" string="Department"/>
+              <div class="text-muted">
+                Select department based on list of HR Departments
+              </div>
+            </div>
+            <!-- Make Visible in Kanban View-->
+            <div class="o_setting_left_pane">
+              <field name="view_department_kanban"/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="view_department_kanban" string="Visible in Kanban"/>
+              <div class="text-muted">
+                field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+
+<!--
+          <!-/- -/->
+          <div class="col-lg-6 o_setting_box">
+            <!-/- Turn Field On -/->
+            <div class="o_setting_left_pane">
+              <field name=""/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="" string=""/>
+              <div class="text-muted">
+              </div>
+            </div>
+            <!-/- Make Visible in Kanban View-/->
+            <div class="o_setting_left_pane">
+              <field name=""/>
+            </div>
+            <div class="o_setting_right_pane">
+              <label for="" string="Visible in Kanban"/>
+              <div class="text-muted">
+                field visible in Kanban View.
+              </div>
+            </div>
+          </div>
+-->
+        </div>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

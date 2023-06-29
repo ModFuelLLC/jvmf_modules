@@ -1,0 +1,15 @@
+div[name = related_tasks].o_jcv_form, div[name = pr_ids].o_jcv_form {
+  margin-top: -.70rem;
+  div.o_x2m_control_panel {
+    visibility: hidden;
+  }
+  div {
+    table {
+      thead {
+        visibility: hidden;
+        font-size: 0rem;
+        padding-top: 0rem;
+      }
+    }
+  }
+}

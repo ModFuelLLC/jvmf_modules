@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="modify_shop_extend" inherit_id="laze_customize.modify_shop">
+  	<xpath expr="//div[hasclass('view-mode')]" position="replace">
+  		<div class="view-mode">
+<div t-if="error_multi_cart" class="alert alert-warning error-section" role="alert">
+			  <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+              <strong>Warning! Some products became unavailable and your cart has been updated. <br/>
+              We're sorry for the inconvenience. </strong>
+            </div>
+  		</div>
+  	</xpath>
+  </template>
+  <template id="multi_variant_list_table">
+      <table class='table table-striped table-condensed' id="product_variants">
+      <thead>
+        <tr>
+            <th width="150">Attributes</th>
+            <th width="90"> Stock Qty </th>
+            <th width="90">Price</th>
+            <th width="90">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-set="existing_variant" t-value="product.get_existing_combinations_variants()"/>
+        <tr t-foreach="product.product_variant_ids" t-as="variant">
+          <t t-esc="variant.sudo().saleable_trigger" invisible="1"/>
+          <t t-set="out_stock" t-value="0"/>
+          <t t-set="variant" t-value="variant.sudo()"/>
+          <t t-if="variant.id not in existing_variant">
+          <td>
+            <div t-foreach="variant.attribute_value_ids" t-as="var_att">
+              <span t-field="var_att.attribute_id"/>:
+              <t t-esc="var_att.name"/>
+            </div>
+          </td>
+          <td id="stock_qty" name="Stock Qty">
+          <t t-if="request.env.user.id != request.website.user_id.id">
+		      <t t-if="variant.sudo().inventory_availability=='always'">
+		      	<t t-if="variant.sudo().saleable_qty>0">
+		      		<span t-esc="variant.sudo().saleable_qty"/>
+		      	</t>
+		      	<t t-else="">
+		      		<span> Out Of Stock </span>
+		      		<t t-set="out_stock" t-value="1"/>
+		      	</t>
+		      </t>
+		     <t t-if="variant.inventory_availability=='never'">
+		     	<span> In Stock </span>
+		     </t>
+		     <t t-if="variant.inventory_availability=='custom'">
+		     	<span t-esc="variant.custom_message"/>
+		     </t>
+          </t>
+          <t t-else="">
+           	<span id="login-to-view-stock"> <a t-att-href="'/web/login?redirect=%s' % request.httprequest.url">Login Required </a></span>
+          </t>
+
+          </td>
+          <td id="td-price" name="price">
+          	<t t-if="request.env.user.id != request.website.user_id.id">
+                <t t-if="(compute_currency(variant.lst_price) - variant.price ) &gt; 0.01 and website.get_current_pricelist().discount_policy == 'without_discount'  and 'discount'">
+                  <del t-attf-class="text-danger"
+                    style="text-decoration: line-through; white-space: nowrap;"
+                    t-field="variant.lst_price"
+                    t-options="{
+                        'widget': 'monetary',
+                        'display_currency': website.currency_id,
+                        'from_currency': website.pricelist_id.currency_id,
+                    }"/>
+                </t>
+                  <span
+                  t-field="variant.website_price" style="white-space: nowrap;"
+                  t-options="{
+                    'widget': 'monetary',
+                    'from_currency':website.pricelist_id.currency_id,
+                    'display_currency': website.currency_id}"/>
+          </t>
+          <t t-else="">
+           	<span id="login-to-view"> <a t-att-href="'/web/login?redirect=%s' % request.httprequest.url">Login to see the Price </a></span>
+          </t>
+          </td>
+          <td>
+            <div class="css_quantity input-group oe_website_spinner" contenteditable="false" t-if="variant.inventory_availability in ['always','never','threshold','custom'] and not out_stock" >
+                <div class="input-group-prepend">
+                  <a t-attf-href="#" class="mb8 input-group-addon js_add_cart_json btn btn-link">
+                      <i class="fa fa-minus"></i>
+                  </a>
+                </div>
+                <t t-if="variant.inventory_availability in ['always','threshold']">
+                <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
+                  t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
+                  value="0"/>
+                </t>
+                <t t-if="variant.inventory_availability in ['never','custom']">
+                <input type="text" class="js_quantity form-control quantity" data-min="0"
+                  t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
+                  value="0"/>
+                </t>
+                <div class="input-group-append">
+                  <a t-attf-href="#" class="mb8 input-group-addon float_left js_add_cart_json btn btn-link">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+            </div>
+			<div class="css_quantity input-group oe_website_spinner" contenteditable="false" t-if="not variant.inventory_availability">
+                <div class="input-group-prepend">
+                  <a t-attf-href="#" class="mb8 input-group-addon js_add_cart_json btn btn-link">
+                      <i class="fa fa-minus"></i>
+                  </a>
+                </div>
+                <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
+                  t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
+                  value="0"/>
+                <div class="input-group-append">
+                  <a t-attf-href="#" class="mb8 input-group-addon float_left js_add_cart_json btn btn-link">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+            </div>
+          </td>
+          </t>
+        </tr>
+      </tbody>
+      </table>
+  </template>
+  <template id="multi_variant_list_table_single">
+      <table class='table table-striped table-condensed' id="product_variants">
+      <thead>
+        <tr>
+            <th width="150">Attributes</th>
+            <th width="90"> Stock Qty </th>
+            <th width="90">Price</th>
+            <th width="90">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-set="existing_variant" t-value="product.get_existing_combinations_variants()"/>
+        <tr t-foreach="product.product_variant_ids" t-as="variant">
+          <t t-esc="variant.sudo().saleable_trigger" invisible="1"/>
+          <t t-set="out_stock" t-value="0"/>
+          <t t-set="variant" t-value="variant.sudo()"/>
+          <t t-if="variant.id not in existing_variant">
+          <td>
+            <div t-foreach="variant.attribute_value_ids" t-as="var_att">
+              <span t-field="var_att.attribute_id"/>:
+              <t t-esc="var_att.name"/>
+            </div>
+          </td>
+          <td id="stock_qty" name="Stock Qty">
+          <t t-if="request.env.user.id != request.website.user_id.id">
+		      <t t-if="variant.sudo().inventory_availability=='always'">
+		      	<t t-if="variant.sudo().saleable_qty>0">
+		      		<span t-esc="variant.sudo().saleable_qty"/>
+		      	</t>
+		      	<t t-else="">
+		      		<span> Out Of Stock </span>
+		      		<t t-set="out_stock" t-value="1"/>
+		      	</t>
+		      </t>
+		     <t t-if="variant.inventory_availability=='never'">
+		     	<span> In Stock </span>
+		     </t>
+		     <t t-if="variant.inventory_availability=='custom'">
+		     	<span t-esc="variant.custom_message"/>
+		     </t>
+          </t>
+          <t t-else="">
+           	<span id="login-to-view-stock"> <a t-att-href="'/web/login?redirect=%s' % request.httprequest.url">Login Required </a></span>
+          </t>
+
+          </td>
+          <td id="td-price" name="price">
+          	<t t-if="request.env.user.id != request.website.user_id.id">
+                <t t-if="(compute_currency(variant.lst_price) - variant.price ) &gt; 0.01 and website.get_current_pricelist().discount_policy == 'without_discount'  and 'discount'">
+                  <del t-attf-class="text-danger"
+                    style="text-decoration: line-through; white-space: nowrap;"
+                    t-field="variant.lst_price"
+                    t-options="{
+                        'widget': 'monetary',
+                        'display_currency': website.currency_id,
+                        'from_currency': website.pricelist_id.currency_id,
+                    }"/>
+                </t>
+                  <span
+                  t-field="variant.website_price" style="white-space: nowrap;"
+                  t-options="{
+                    'widget': 'monetary',
+                    'from_currency':website.pricelist_id.currency_id,
+                    'display_currency': website.currency_id}"/>
+          </t>
+          <t t-else="">
+           	<span id="login-to-view"> <a t-att-href="'/web/login?redirect=%s' % request.httprequest.url">Login to see the Price </a></span>
+          </t>
+          </td>
+          <td>
+            <div class="css_quantity input-group oe_website_spinner" contenteditable="false" t-if="variant.inventory_availability in ['always','never','threshold','custom'] and not out_stock" >
+                <div class="input-group-prepend">
+                  <a t-attf-href="#" class="mb8 input-group-addon js_add_cart_json btn btn-link">
+                      <i class="fa fa-minus"></i>
+                  </a>
+                </div>
+                <t t-if="variant.inventory_availability in ['always','threshold']">
+                <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
+                  t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
+                  value="0"/>
+                </t>
+                <t t-if="variant.inventory_availability in ['never','custom']">
+                <input type="text" class="js_quantity form-control quantity" data-min="0"
+                  t-att-name="add_qty" t-att-data-product-id="variant.id"
+                  value="0"/>
+                </t>
+                <div class="input-group-append">
+                  <a t-attf-href="#" class="mb8 input-group-addon float_left js_add_cart_json btn btn-link">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+            </div>
+			<div class="css_quantity input-group oe_website_spinner" contenteditable="false" t-if="not variant.inventory_availability">
+                <div class="input-group-prepend">
+                  <a t-attf-href="#" class="mb8 input-group-addon js_add_cart_json btn btn-link">
+                      <i class="fa fa-minus"></i>
+                  </a>
+                </div>
+                <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
+                  t-att-name="add_qty" t-att-data-product-id="variant.id"
+                  value="0"/>
+                <div class="input-group-append">
+                  <a t-attf-href="#" class="mb8 input-group-addon float_left js_add_cart_json btn btn-link">
+                    <i class="fa fa-plus"></i>
+                  </a>
+                </div>
+            </div>
+          </td>
+          </t>
+        </tr>
+      </tbody>
+      </table>
+  </template>
+  <template id="multi_variant_list">
+    <div class="multi_variant_list" t-if="len(product.product_variant_ids)&gt; 0">
+      <form action="/shop/multi_cart">
+      <t t-call="advance_multi_variant_cart.multi_variant_list_table"/>
+      <input name="product_tmpl_id" t-att-value="product.id" type="hidden"/>
+      <!--
+      <input type="submit" id="m_add_to_cart" class="btn btn-primary btn-lg mt8 js_check_product a-submit" href="#" value="Add to Cart" ></input>
+      -->
+      </form>
+    </div>
+  </template>
+  <template id="hide_qty" inherit_id="website_sale.product_quantity">
+    <xpath expr="//div[hasclass('css_quantity')]" position="attributes">
+    <attribute name="t-if">len(product.product_variant_ids)&lt;= 1</attribute>
+  </xpath>
+  </template>
+
+  <template id="multi_variant_add_to_cart" inherit_id="website_sale.product">
+  <xpath expr="//div[hasclass('js_product')]" position="attributes">
+    <attribute name="t-if">len(product.product_variant_ids)&lt; 1</attribute>
+  </xpath>
+  <xpath expr="//div[@id='product_details']" position="inside">
+  	<div id="multi-list" t-if="len(product.product_variant_ids)&gt; 0 and product._is_add_to_cart_possible()">
+  		<t t-call="advance_multi_variant_cart.multi_variant_list"/>
+  	</div>
+  	</xpath>
+  </template>
+  <template id="products_list_view" inherit_id="laze_customize.product_items" name="Enable Multi Add to Cart" active="False" customize_show="True">
+  <xpath expr="//div[hasclass('pro-info')]//div[hasclass('product_price')]" position="after">
+  	<div id="multi-list" t-if="len(product.product_variant_ids)&gt; 1 and request.env['ir.ui.view'].sudo().search([('key','=','laze_customize.products_list_view')])">
+  		<t t-call="advance_multi_variant_cart.multi_variant_list"/>
+  	</div>
+
+  </xpath>
+  </template>
+
+  <template id="product_items_info" inherit_id="laze_customize.product_items">
+  	<xpath expr="//div[hasclass('pro-info')]//div[hasclass('product_price')]" position="before">
+  		<div class="product_price-detail" t-if="len(product.product_variant_ids)&gt; 1">
+  			<a t-att-href="keep('/shop/product/%s' % slug(product))">
+              <span> View in Details </span>
+            </a>
+  		</div>
+  	</xpath>
+  	  	<xpath expr="//div[hasclass('pro-info')]//div[hasclass('product_price')]" position="attributes">
+  	  		<attribute name="style">'display : none' if len(product.product_variant_ids)&gt; 1</attribute>
+  	  	</xpath>
+  </template>
+
+  <template id="products_list_view_single" inherit_id="laze_customize.product_items" name="Enable Stock Qty for single Variant" active="False" customize_show="True">
+  <xpath expr="//div[hasclass('pro-info')]//div[hasclass('product_price')]" position="before">
+  	<div id="multi-list" t-if="len(product.product_variant_ids)==1 and request.env['ir.ui.view'].sudo().search([('key','=','laze_customize.products_list_view')])" class="multi_variant_list">
+		<t t-call="advance_multi_variant_cart.multi_variant_list_table_single"/>
+  	</div>
+
+  </xpath>
+  </template>
+
+    <template id="products_add_to_cart_bulk" inherit_id="website_sale.products" active="False" customize_show="True" name="Add to Cart Bulk">
+        <xpath expr="//div[@id='products_grid']" position="inside">
+            <t t-if="bins and request.env['ir.ui.view'].sudo().search([('key','=','laze_customize.products_list_view')])">
+                <div class="add_to_cart_bulk_div">
+                    <a class="add_to_cart_bulk" href="#">
+                        <span class="fa fa-shopping-cart"></span> Bulk Add to Cart
+                    </a>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template id="asset_front_js" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"  src="/advance_multi_variant_cart/static/src/js/product_add_to_cart_bulk.js"></script>
+            <link href="/advance_multi_variant_cart/static/src/css/bulk.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+</odoo>

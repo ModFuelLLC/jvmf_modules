@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_create,perm_read,perm_write,perm_unlink
+ursa_rack_bin_management.access_stock_putaway_fixed_rule_user,stock.putaway.fixed.rule.user,model_stock_putaway_fixed_rule,stock.group_stock_user,0,1,0,0
+ursa_rack_bin_management.access_stock_putaway_fixed_rule_manager,stock.putaway.fixed.rule.manager,model_stock_putaway_fixed_rule,stock.group_stock_manager,1,1,1,1

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- All edits to the employee form view-->
+    <record model="ir.ui.view" id="employee_form_edit">
+      <field name="name">employee.form.edit</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='department_id']" position="before">
+          <field name="company_ids" widget="many2many_tags" string="Companies"/>
+        </xpath>
+        <xpath expr="//field[@name='work_location']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='user_id']" position="after">
+          <field name="hire_date" />
+        </xpath>
+        <xpath expr="//field[@name='mobile_phone']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='address_home_id']" position="after">
+          <field name="home_phone" attrs="{'invisible': [('home_phone', '=', False)]}"/>
+          <field name="mobile_phone" attrs="{'invisible': [('mobile_phone', '=', False)]}"/>
+          <field name="home_email"  attrs="{'invisible': [('home_email', '=', False)]}"/>
+        </xpath>
+        <xpath expr="//field[@name='name']" position="before">
+
+        </xpath>
+        <xpath expr="//page[@name='hr_settings']" position="after">
+          <page name="employment_locations" string="Locations" groups="hr.group_hr_manager,base.group_user">
+            <field name="location_ids">
+              <tree editable="bottom">
+                  <field name="location_id" string="Location" domain="[('parent_id', '!=', False)]"/>
+                  <field name="location_address_id" string="Address"/>
+                  <field name="location_phone_number" string="Phone #"/>
+                  <field name="location_parent_id" string='Zone'/>
+                  <field name="primary_location"/>
+              </tree>
+            </field>
+          </page>
+        </xpath>
+        <xpath expr="//page[@name='hr_settings']" position="inside">
+          <group string="ADP Settings" attrs="{'invisible': [('is_joost_employee', '=', False), ('is_modfuel_employee', '=', False)]}">
+            <group>
+              <field name="is_joost_employee" invisible="1"/>
+              <field name="is_modfuel_employee" invisible="1"/>
+              <field name="adp_joost_employee_id" attrs="{'invisible': [('is_joost_employee', '=', False)]}"/>
+              <field name="adp_modfuel_employee_id" attrs="{'invisible': [('is_modfuel_employee', '=', False)]}"/>
+            </group>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="hr_employee_kanban_ext" model="ir.ui.view">
+      <field name="name">hr.employee.kanban.ext</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr_attendance.hr_employees_view_kanban"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">
+          <div class="o_project_kanban_boxes">
+              <div t-if="record.location_ids" class="o_project_kanban_box">
+                  <a name="%(location_attendance_action_kanban)d" type="action">
+                      <span class="o_value"><t t-esc="record.location_count.value"/></span>
+                  </a>
+                  <field name="company_ids" invisible="1"/>
+                  <field name="parent_id" invisible="1"/>
+                  <a t-if="record.location_count" class="o_needaction" name="%(location_attendance_action_kanban)d" type="action" context="{'search_default_company_id': company_ids, 'search_default_group': parent_id}">
+                      <t t-esc="record.location_count"/>
+                  </a>
+              </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
