@@ -9,7 +9,7 @@ class WebisteConfiguration(models.TransientModel):
 
     swp_is_popup_msg = fields.Boolean(related='website_id.swp_is_popup_msg',string="swp popup Message", readonly = False)
     swp_titile = fields.Char(related="website_id.swp_titile", string="popup Title", readonly = False)
-    swp_add_message = fields.Boolean(related="website_id.swp_add_message", string="Add Message")
+    swp_add_message = fields.Boolean(related="website_id.swp_add_message", string="Add Message", readonly = False)
     swp_message = fields.Html(related="website_id.swp_message",string="popup Message", readonly = False)
     swp_dismiss_btn_name = fields.Char(related="website_id.swp_dismiss_btn_name", readonly = False)
     swp_link_btn_name = fields.Char(related="website_id.swp_link_btn_name", string="popup Link Button Name", readonly = False)

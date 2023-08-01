@@ -14,6 +14,7 @@ class Product(models.Model):
 
     @api.multi
     def _compute_saleable_qty(self):
+        # import pdb; pdb.set_trace()
         res = self._compute_quantities_dict(self._context.get('lot_id'), self._context.get('owner_id'), self._context.get('package_id'))
         for product in self:
             product.write({'saleable_qty': res[product.id]['qty_available'] - res[product.id]['outgoing_qty'],})

@@ -24,7 +24,7 @@
       <tbody>
         <t t-set="existing_variant" t-value="product.get_existing_combinations_variants()"/>
         <tr t-foreach="product.product_variant_ids" t-as="variant">
-          <t t-esc="variant.sudo().saleable_trigger" invisible="1"/>
+          <!-- <t t-esc="variant.sudo().saleable_trigger" invisible="1"/> -->
           <t t-set="out_stock" t-value="0"/>
           <t t-set="variant" t-value="variant.sudo()"/>
           <t t-if="variant.id not in existing_variant">
@@ -36,15 +36,15 @@
           </td>
           <td id="stock_qty" name="Stock Qty">
           <t t-if="request.env.user.id != request.website.user_id.id">
-		      <t t-if="variant.sudo().inventory_availability=='always'">
-		      	<t t-if="variant.sudo().saleable_qty>0">
+		      <!-- <t t-if="variant.sudo().inventory_availability=='always'"> -->
+		      	<!-- <t t-if="variant.sudo().saleable_qty>0">
 		      		<span t-esc="variant.sudo().saleable_qty"/>
-		      	</t>
-		      	<t t-else="">
+		      	</t> -->
+		      	<!-- <t t-else="">
 		      		<span> Out Of Stock </span>
 		      		<t t-set="out_stock" t-value="1"/>
 		      	</t>
-		      </t>
+		      </t> -->
 		     <t t-if="variant.inventory_availability=='never'">
 		     	<span> In Stock </span>
 		     </t>
@@ -87,11 +87,11 @@
                       <i class="fa fa-minus"></i>
                   </a>
                 </div>
-                <t t-if="variant.inventory_availability in ['always','threshold']">
+                <!-- <t t-if="variant.inventory_availability in ['always','threshold']">
                 <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
                   t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
                   value="0"/>
-                </t>
+                </t> -->
                 <t t-if="variant.inventory_availability in ['never','custom']">
                 <input type="text" class="js_quantity form-control quantity" data-min="0"
                   t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
@@ -137,7 +137,7 @@
       <tbody>
         <t t-set="existing_variant" t-value="product.get_existing_combinations_variants()"/>
         <tr t-foreach="product.product_variant_ids" t-as="variant">
-          <t t-esc="variant.sudo().saleable_trigger" invisible="1"/>
+          <!-- <t t-esc="variant.sudo().saleable_trigger" invisible="1"/> -->
           <t t-set="out_stock" t-value="0"/>
           <t t-set="variant" t-value="variant.sudo()"/>
           <t t-if="variant.id not in existing_variant">
@@ -149,15 +149,15 @@
           </td>
           <td id="stock_qty" name="Stock Qty">
           <t t-if="request.env.user.id != request.website.user_id.id">
-		      <t t-if="variant.sudo().inventory_availability=='always'">
-		      	<t t-if="variant.sudo().saleable_qty>0">
+		      <!-- <t t-if="variant.sudo().inventory_availability=='always'"> -->
+		      	<!-- <t t-if="variant.sudo().saleable_qty>0">
 		      		<span t-esc="variant.sudo().saleable_qty"/>
-		      	</t>
-		      	<t t-else="">
+		      	</t> -->
+		      	<!-- <t t-else="">
 		      		<span> Out Of Stock </span>
 		      		<t t-set="out_stock" t-value="1"/>
 		      	</t>
-		      </t>
+		      </t> -->
 		     <t t-if="variant.inventory_availability=='never'">
 		     	<span> In Stock </span>
 		     </t>
@@ -200,11 +200,11 @@
                       <i class="fa fa-minus"></i>
                   </a>
                 </div>
-                <t t-if="variant.inventory_availability in ['always','threshold']">
+                <!-- <t t-if="variant.inventory_availability in ['always','threshold']">
                 <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
                   t-att-name="'qty-%s' % (variant.id)" t-att-data-product-id="variant.id"
                   value="0"/>
-                </t>
+                </t> -->
                 <t t-if="variant.inventory_availability in ['never','custom']">
                 <input type="text" class="js_quantity form-control quantity" data-min="0"
                   t-att-name="add_qty" t-att-data-product-id="variant.id"
@@ -222,9 +222,9 @@
                       <i class="fa fa-minus"></i>
                   </a>
                 </div>
-                <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
+                <!-- <input type="text" class="js_quantity form-control quantity" data-min="0" t-att-data-max="variant.saleable_qty"
                   t-att-name="add_qty" t-att-data-product-id="variant.id"
-                  value="0"/>
+                  value="0"/> -->
                 <div class="input-group-append">
                   <a t-attf-href="#" class="mb8 input-group-addon float_left js_add_cart_json btn btn-link">
                     <i class="fa fa-plus"></i>
@@ -242,9 +242,9 @@
       <form action="/shop/multi_cart">
       <t t-call="advance_multi_variant_cart.multi_variant_list_table"/>
       <input name="product_tmpl_id" t-att-value="product.id" type="hidden"/>
-      <!--
+
       <input type="submit" id="m_add_to_cart" class="btn btn-primary btn-lg mt8 js_check_product a-submit" href="#" value="Add to Cart" ></input>
-      -->
+
       </form>
     </div>
   </template>

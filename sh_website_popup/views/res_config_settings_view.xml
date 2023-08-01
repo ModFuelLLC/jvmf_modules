@@ -22,7 +22,7 @@
   									          <field name="swp_banner_img" string="Large Screen Image" widget="image" class="w-25 mt-2" attrs="{'invisible': [('swp_is_popup_msg','=',False)]}"/>
 <!--
                               <field name="swp_banner_img_sm" string="Small Screen Image" widget="image" class="w-25 mt-2" attrs="{'invisible': [('swp_is_popup_msg','=',False)]}"/>
--->                              
+-->
   		                      </group>
                            </div>
                         </div>

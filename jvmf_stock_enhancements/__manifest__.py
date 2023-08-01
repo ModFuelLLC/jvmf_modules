@@ -49,13 +49,13 @@
 
     # always loaded
     'data': [
-        'data/ir_cron.xml',
-        'views/stock_picking.xml',
-        'views/res_config_settings.xml',
-        'views/mail_templates.xml',
-        'views/purchase_views.xml',
-        'views/product_return_view.xml',
-        'views/mrp_production_views.xml',
+        # 'data/ir_cron.xml',
+        # 'views/stock_picking.xml',
+        # 'views/res_config_settings.xml',
+        # 'views/mail_templates.xml',
+        # 'views/purchase_views.xml',
+        # 'views/product_return_view.xml',
+        # 'views/mrp_production_views.xml',
         'views/product.xml',
     ],
     # only loaded in demonstration mode
